@@ -1,4 +1,4 @@
 package pl.openthejar.dao;
 
-public class PersonDao {
+public class EntityDao {
 }
