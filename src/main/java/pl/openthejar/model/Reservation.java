@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 @Entity
 @NoArgsConstructor
-//@RequiredArgsConstructor
 @Setter @Getter
 public class Reservation extends BaseEntity implements Serializable {
 
@@ -16,13 +15,17 @@ public class Reservation extends BaseEntity implements Serializable {
     @ManyToOne
     private Client client;
 
-    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Setter(AccessLevel.NONE)
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Service service;
 
     @Setter(AccessLevel.NONE)
     @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Review review;
+
+    @Setter(AccessLevel.NONE)
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private WorkDate workDate;
 
     public void addReview(Review review) {
         review.setReservation(this);
@@ -32,5 +35,10 @@ public class Reservation extends BaseEntity implements Serializable {
     public void addService(Service service) {
         service.setReservation(this);
         this.service = service;
+    }
+
+    public void addWorkDate(WorkDate workDate) {
+        workDate.setReservation(this);
+        this.workDate = workDate;
     }
 }

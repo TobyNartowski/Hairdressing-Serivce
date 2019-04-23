@@ -3,7 +3,10 @@ package pl.openthejar;
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.model.*;
 
+import javax.swing.text.html.parser.Entity;
+import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 
 public class HairdressingServiceApplication {
@@ -22,6 +25,11 @@ public class HairdressingServiceApplication {
 
         reservation.addReview(new Review("Title", "Content"));
         reservation.addService(service);
+
+        Employee employee = new Employee("employee1", "0x1", "Will", "Smith");
+        WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
+        reservation.addWorkDate(workDate);
+
         client.addReservation(reservation);
 
         EntityDao<Client> clientDao = new EntityDao<>(Client.class);
