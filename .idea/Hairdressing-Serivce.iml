@@ -21,12 +21,5 @@
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
-    <facet type="javaeeApplication" name="javaEEApplication">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/META-INF/application.xml" />
-        </descriptors>
-      </configuration>
-    </facet>
   </component>
 </module>

@@ -1,8 +1,5 @@
 package pl.openthejar.controller;
 
-import pl.openthejar.dao.EntityDao;
-import pl.openthejar.model.Client;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,8 +9,6 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    private EntityDao<Client> clientDao = new EntityDao<>(Client.class);
-    private static final long serialVersionUID = 102831973239L;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
