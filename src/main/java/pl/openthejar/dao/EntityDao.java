@@ -30,6 +30,10 @@ public class EntityDao<T extends BaseEntity> {
         return entityManager.find(type, id);
     }
 
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
     public void cleanUp() {
         entityManager.close();
         entityManagerFactory.close();
