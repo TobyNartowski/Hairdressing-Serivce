@@ -13,7 +13,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <hibernate.version>5.4.2.Final</hibernate.version>
         <hibernate.annotation.version>3.5.6-Final</hibernate.annotation.version>
-        <postgres.version>42.2.5</postgres.version>
+        <mysql.version>8.0.15</mysql.version>
     </properties>
 
     <dependencies>
@@ -29,12 +29,13 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>${hibernate.annotation.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgres.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>

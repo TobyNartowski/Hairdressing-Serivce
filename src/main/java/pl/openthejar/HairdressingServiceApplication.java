@@ -3,8 +3,6 @@ package pl.openthejar;
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.model.*;
 
-import javax.swing.text.html.parser.Entity;
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
