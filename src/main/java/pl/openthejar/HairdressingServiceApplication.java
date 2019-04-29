@@ -17,16 +17,16 @@ public class HairdressingServiceApplication {
 
         Service service = new Service("First service", 600, 1000);
         service.setProducts(new HashSet<>(Arrays.asList(
-                new Product(new ProductType("First service", 100), 3),
-                new Product(new ProductType("Second service", 130), 2)
+                new Product(new ProductType("First product", 100), 3),
+                new Product(new ProductType("Second product", 130), 2)
         )));
 
-        reservation.addReview(new Review("Title", "Content"));
-        reservation.addService(service);
+        reservation.setReview(new Review("Title", "Content"));
+        reservation.setService(service);
 
-        Employee employee = new Employee("employee1", "0x1", "Will", "Smith");
+        Employee employee = new Employee("employee1", "0x1acf2137ff", "Ricardo", "Milos");
         WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
-        reservation.addWorkDate(workDate);
+        reservation.setWorkDate(workDate);
 
         client.addReservation(reservation);
 

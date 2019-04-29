@@ -25,7 +25,4 @@ public class Review extends BaseEntity implements Serializable {
 
     @Column(nullable = false)
     private Date date = new Date(new Timestamp(System.currentTimeMillis()).getTime());
-
-    @OneToOne
-    private Reservation reservation;
 }

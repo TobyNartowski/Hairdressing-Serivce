@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
@@ -22,7 +21,4 @@ public class Discount extends BaseEntity implements Serializable {
     @NonNull
     @Column(nullable = false)
     private Integer amount;
-
-    @ManyToOne
-    private Client client;
 }

@@ -19,11 +19,7 @@ public class Product extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private Integer quantity;
 
-    @ManyToOne
-    private Service service;
-
     public Product(ProductType type, Integer quantity) {
-        type.addProduct(this);
         this.type = type;
         this.quantity = quantity;
     }

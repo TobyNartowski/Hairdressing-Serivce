@@ -32,19 +32,17 @@ public class Client extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private Long phoneNumber;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Discount> discounts = new HashSet<>();
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Reservation> reservations = new HashSet<>();
 
     public void addDiscount(Discount discount) {
-        discount.setClient(this);
         discounts.add(discount);
     }
 
     public void addReservation(Reservation reservation) {
-        reservation.setClient(this);
         reservations.add(reservation);
     }
 

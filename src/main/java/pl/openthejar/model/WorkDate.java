@@ -20,15 +20,11 @@ public class WorkDate extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private Date date;
 
-    @OneToOne
-    private Reservation reservation;
-
     @Setter(AccessLevel.NONE)
-    @ManyToMany(mappedBy = "dates", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Employee> employees = new HashSet<>();
 
     public void addEmployee(Employee employee) {
-        employee.addWorkDate(this);
         employees.add(employee);
     }
 

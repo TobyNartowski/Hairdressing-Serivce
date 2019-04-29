@@ -27,15 +27,6 @@ public class Service extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private Integer price;
 
-    @OneToOne
-    private Reservation reservation;
-
-    @Setter(AccessLevel.NONE)
-    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Set<Product> products = new HashSet<>();
-
-    public void setProducts(Set<Product> products) {
-        products.forEach(p -> p.setService(this));
-        this.products = products;
-    }
 }

@@ -32,15 +32,4 @@ public class Employee extends BaseEntity implements Serializable {
     @NonNull
     @Column(nullable = false)
     private String lastName;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "employee_work_dates",
-            joinColumns = {@JoinColumn(name = "employee_id")},
-            inverseJoinColumns = {@JoinColumn(name = "date_id")}
-    )
-    private Set<WorkDate> dates = new HashSet<>();
-
-    public void addWorkDate(WorkDate workDate) {
-        dates.add(workDate);
-    }
 }
