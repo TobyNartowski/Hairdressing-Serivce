@@ -1,7 +1,7 @@
 package pl.openthejar.resource;
 
 import pl.openthejar.dao.EntityDao;
-import pl.openthejar.model.Client;
+import pl.openthejar.model.Review;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -9,14 +9,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/clients")
-public class ClientResource {
+@Path("/reviews")
+public class ReviewResource {
 
-    private EntityDao<Client> dao = new EntityDao<>(Client.class);
+    private EntityDao<Review> dao = new EntityDao<>(Review.class);
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Client> getAll() {
+    public List<Review> getAll() {
         return dao.findAll();
     }
 }
