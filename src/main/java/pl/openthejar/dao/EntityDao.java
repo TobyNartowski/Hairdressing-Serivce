@@ -2,21 +2,21 @@ package pl.openthejar.dao;
 
 import pl.openthejar.model.BaseEntity;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
-public class EntityDao<T extends BaseEntity> {
+public class EntityDao<T extends BaseEntity> extends DatabaseProxy {
 
-    private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
+    private String tableName;
     private Class<T> type;
 
     public EntityDao(Class<T> type) {
         this.type = type;
         entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         entityManager = entityManagerFactory.createEntityManager();
+        tableName = type.getSimpleName();
     }
 
     public void save(T object) {
@@ -30,8 +30,9 @@ public class EntityDao<T extends BaseEntity> {
         return entityManager.find(type, id);
     }
 
-    public void cleanUp() {
-        entityManager.close();
-        entityManagerFactory.close();
+    public List<T> findAll() {
+        final String query = "SELECT o FROM " + tableName + " o";
+        TypedQuery<T> findAllQuery = entityManager.createQuery(query, type);
+        return findAllQuery.getResultList();
     }
 }

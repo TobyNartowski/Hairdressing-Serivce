@@ -1,5 +1,6 @@
 package pl.openthejar;
 
+import org.hibernate.jdbc.Work;
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.model.*;
 
@@ -10,6 +11,14 @@ import java.util.HashSet;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
+        EntityDao<Product> entityDao = new EntityDao<>(Product.class);
+        entityDao.findAll().forEach(System.out::println);
+        System.exit(0);
+
+        //loadDummyData();
+    }
+
+    public static void loadDummyData() {
         Client client = new Client("John", "Doe", 123123123L);
         client.addDiscount(new Discount("Regular customer", 10));
 
