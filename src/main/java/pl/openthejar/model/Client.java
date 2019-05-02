@@ -10,6 +10,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
 @Setter @Getter
 public class Client extends BaseEntity implements Serializable {
 

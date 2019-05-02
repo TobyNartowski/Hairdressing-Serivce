@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EntityDao<T extends BaseEntity> extends DatabaseProxy {
 
-    private String tableName;
+    String tableName;
     private Class<T> type;
 
     public EntityDao(Class<T> type) {
@@ -19,11 +19,12 @@ public class EntityDao<T extends BaseEntity> extends DatabaseProxy {
         tableName = type.getSimpleName();
     }
 
-    public void save(T object) {
+    public T save(T object) {
         EntityTransaction tx = entityManager.getTransaction();
         tx.begin();
         entityManager.persist(object);
         tx.commit();
+        return object;
     }
 
     public T get(Long id) {

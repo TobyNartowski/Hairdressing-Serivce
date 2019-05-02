@@ -2,7 +2,6 @@ package pl.openthejar;
 
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.model.*;
-import pl.openthejar.resource.DiscountResource;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -11,9 +10,6 @@ import java.util.HashSet;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
-        //EntityDao<Product> entityDao = new EntityDao<>(Product.class);
-        //entityDao.findAll().forEach(System.out::println);
-        DiscountResource discountResource = new DiscountResource();
         System.exit(0);
 
         //loadDummyData();
