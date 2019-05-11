@@ -1,0 +1,276 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+header {
+    width: 100%;
+    margin: auto;
+    background-color: #0688fa;
+}
+nav {
+    width: 95%;
+    height: 35px;
+    list-style-type: none;
+    padding: 2%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    margin: 0;
+    overflow: hidden;
+}
+
+nav ol {
+    width: 85%;
+    float: left;
+}
+
+nav ol li {
+    display: inline-block;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+nav ol li:first-child {
+    margin-right: 0;
+}
+
+nav p {
+    margin-left: 0;
+    font-size: 1.6rem;
+}
+
+nav .button {
+    padding: 3%;
+    width: 150%;
+    border: 1px solid white;
+    padding: 8%;
+    border-radius: 5px;
+    align-content: center;
+    font-size: 1.2rem;
+    text-align: center;
+    
+}
+
+nav .userFrame {
+    width: 14%;
+    float: left;
+    border: 1px solid white;
+    border-radius: 5px;
+    align-content: center;
+    text-align: center;
+    height: 35px;
+}
+
+nav .userFrame img {
+    display: inline-block;
+    width: 25%;
+    height: 35px;
+}
+
+nav .userFrame span {
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    display: inline-block;
+    width: 70%;
+    height: 35px;
+    position: relative;
+    top: -30%;
+}
+
+.indexMain, .loginMain, .registerMain, .registerSucces {
+    margin-top: 7%;
+    width: 100%;
+}
+
+.indexMain, .loginMain, .registerSucces {
+    background-color: #0688fa;    
+}
+main .container {
+     padding: 10%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+    text-align: justify;
+}
+main .container h1 {
+    text-align: center;
+    padding: 2%;
+        padding-top: 0;
+}
+
+
+.content {
+    width: 16%;
+    margin: auto;
+    margin-top: 6%;
+}
+
+.myButton {
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	padding:10px 37px;
+	text-decoration:none;
+    
+}
+.myButton:hover {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+   
+footer {
+    margin-top: 10%;
+    width: 100%;
+    height:75px;
+    background-color: #0688fa;  
+    position: relative;
+    bottom: 0;
+}
+
+footer p {
+    margin-left: 2%;
+}
+
+a {
+    text-decoration: none;
+}
+a:any-link {
+    text-decoration: none;
+    color: white;
+}
+/*LOGOWANIE*/
+
+main .login {
+    display: inline-block;
+    float: left;
+    width: 35%;
+    padding: 4%;
+    margin-left: 8%;
+    border-right: thin solid black;
+}
+
+main .login .loginform {
+    margin: auto;
+    display: table;
+}
+
+main .login .loginform input, span{
+    margin: 0%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+}
+
+main .register {
+    display: inline-block;
+    float: left;
+    width: 40%;
+    padding: 4%;
+}
+
+main .register span {
+    display: block;
+    padding-top: 7%;
+    padding-bottom: 10%;
+    margin: auto;
+}
+
+.loginFooter {
+    margin-top: 10%;
+    width: 100%;
+    height:75px;
+    background-color: #0688fa;  
+    position: absolute;
+    bottom: 0;
+}
+
+/*REJESTRACJA*/
+main .registerPage {
+    margin: auto;
+    width: 40%;
+}
+
+main .registerPage input {
+    margin-bottom: 5%;
+}
+
+main .registerPage .leftPane {
+    margin: auto;
+    width: 40%;
+    display: inline-block;
+    padding: 4.5%;
+}
+
+main .registerPage .rightPane{
+    width: 40%;
+    margin: auto;
+    display: inline-block;
+    padding: 4.5%;
+}
+
+main .registerPage a {
+    display: block;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+/*REJESTRACJA POMYSLNA*/
+.registerSucces {
+    width: 96%;
+    margin: auto;
+        margin-top: 10%;
+    padding: 2%;
+    text-align: center;
+}
+
+.registerSucces span {
+    display: block;
+    font-size: 2rem;
+}
+
+.registerButton{
+    width: 100%;
+    margin: auto;
+        margin-top: 5%;
+}
+
+.registerButton a .myButton {
+    margin: auto;
+}
+
+/*ABOUT US*/
+.aboutUs {
+    width: 35%;
+    padding: 5%;
+    padding-bottom: 2%;
+    letter-spacing: 1.3px;
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+.aboutUs h1 {
+    margin-bottom: 15px;
+    font-size: 2.3rem;
+}
+
+.backgroundAbout {
+    /*todo fix*/
+    background-image: url(/webapp/img/tlo2.png);
+    background-size: cover;
+    margin-bottom: -10%;
+}

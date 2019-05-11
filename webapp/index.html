@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/Style.css" />
+    <script type="text/javascript" src="js/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="js/route.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ol>
+                <li><p>Super salon usługowy</p></li>
+                <li><div class="button">OFERTA</div></li>
+                <li><div class="button">ZESPÓŁ</div></li>
+                <li><div class="button"><a ng-href="/view/about.html">O NAS </a></div></li>
+                <li><div class="button">OPINIE</div></li>
+            </ol>
+<!-- todo            zmienic na twoje konto-->
+            <a ng-href="/view/login.html"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+            <div style="clear: both"> </div>
+        </nav>
+    </header>
+    <main class="registerSucces">
+        <span>Najlepszy salon usługowy</span>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.</p>
+            <br/><br/>
+    </main>
+        <center>
+            <div class="content">
+                <a ng-href="/view/login.html" class="myButton">Zaloguj się !</a>
+            </div>
+        </center>
+    <footer class="loginFooter"><br/>
+        <p>Super salon usługowy</p>
+    </footer>
+</body>
+</html>
