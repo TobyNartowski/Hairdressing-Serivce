@@ -10,30 +10,32 @@
 
     <title>Home</title>
 </head>
-<body>
+<body ng-controller="loginCtrl">
     <header>
         <nav>
-            <ol>
-                <li><p>Super salon usługowy</p></li>
-                <li><div class="button">OFERTA</div></li>
-                <li><div class="button">ZESPÓŁ</div></li>
-                <li><div class="button"><a ng-href="/about.html">O NAS </a></div></li>
-                <li><div class="button">OPINIE</div></li>
+             <ol>
+                <li><p><a href="../index.html">Super salon usługowy </a></p></li>
+                <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
+                <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
+                <li><div class="button"><a href="about.html">O NAS </a></div></li>
+                <li><div class="button"><a href="reviewShowAll.html">OPINIE
+                </a></div></li>
             </ol>
 <!-- todo            zmienic na twoje konto-->
             <a href="login.html"><div class="userFrame"><span>Zaloguj Się</span><img src="../img/user2.png" height="35px"></div></a>
             <div style="clear: both"> </div>
         </nav>
     </header>
+    <h1 style="text-align: center">{{errormsg}}</h1>
     <main class="loginMain">
         <div class="login">
-            <div class="loginform" ng-controller="loginCtrl">
+            <div class="loginform">
                 <form action="/" id="myLogin">
                     <span>Login</span><br/>
-                    <input type="text" id="username" ng-model="username"><br/>
+                    <input type="text" id="username" ng-model="username" required><br/>
                 
                     <span>Password</span><br/>
-                    <input type="password" id="password" ng-model="password"><br/>
+                    <input type="password" id="password" ng-model="password" required><br/>
                     <a ng-click="submit()" class="myButton">Zaloguj się !</a>
             </form>
             </div>

@@ -10,10 +10,10 @@
 
     <title>Home</title>
 </head>
-<body>
+<body ng-controller="loginCtrl">
     <header>
         <nav>
-            <ol>
+             <ol>
                 <li><p><a href="../index.html">Super salon usługowy </a></p></li>
                 <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
                 <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
@@ -21,23 +21,35 @@
                 <li><div class="button"><a href="reviewShowAll.html">OPINIE
                 </a></div></li>
             </ol>
-<!--            zmienic na twoje konto-->
-            <a href="/view/login.html"><div class="userFrame"><span>Zaloguj Się</span><img src="../img/user2.png" height="35px"></div></a>
+<!-- todo            zmienic na twoje konto-->
+            <a href="login.html"><div class="userFrame"><span>Zaloguj Się</span><img src="../img/user2.png" height="35px"></div></a>
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="registerSucces">
-            <span>Konto Utworzone !</span>
-            <p> Na adres e-mail został wysłany link do aktywacji konta </p>
-            <br/><br/>
+    <main class="services">
+        <table>
+            <tr>
+                <th>
+                    <div class="image">image</div>
+                    <div class="desc">
+                        <h2 style="text-align: center;">Nazwa usługi</h2><br/>
+                        <span>Czas : x minut</span><br/>
+                        <span>Koszt: x zł</span>
+                    <a ng-href="login.html" class="myButton"> Rezerwuj</a></div>
+                </th>
+                <th>
+                    <div class="image">image</div>
+                    <div class="desc">desc</div>
+                </th>
+                <th>
+                    <div class="image">image</div>
+                    <div class="desc">desc</div>
+                </th>
+            </tr>
+            
+        </table>
     </main>
-        <center>
-            <div class="content">
-                <a ng-href="login.html" class="myButton">Powrót !</a>
-            </div>
-        </center>
-
-    <footer><br/>
+    <footer class="loginFooter"><br/>
         <p>Super salon usługowy</p>
     </footer>
 </body>

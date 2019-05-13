@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav>
-            <ol>
+             <ol>
                 <li><p><a href="../index.html">Super salon usługowy </a></p></li>
                 <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
                 <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
@@ -26,10 +26,26 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="registerSucces">
-            <span>Konto Utworzone !</span>
-            <p> Na adres e-mail został wysłany link do aktywacji konta </p>
-            <br/><br/>
+    <main class="employee">
+        Stan produktów :
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Produkt</th>
+                <th>Stan</th>
+                <th>Typ</th>
+                <th>Cena</th>
+                <th><p>########</p></th>
+            </tr>
+             <tr>
+                <th>{{Id}}</th>
+                <th>{{Produkt}}</th>
+                <th>{{Status}}</th>
+                <th>{{Typ}}</th>
+                <th>{{Cena}}</th>
+                 <th><a ng-href="login.html" class="myButton"> Zamów {{x}} produktów</a></th>
+            </tr>
+        </table>
     </main>
         <center>
             <div class="content">

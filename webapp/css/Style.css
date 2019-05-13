@@ -3,9 +3,15 @@ margin: 0;
 padding: 0;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     width: 100%;
     min-height: 100%;
+    margin: 0 0 75px;
 }
 
 header {
@@ -83,12 +89,12 @@ nav .userFrame span {
     top: -30%;
 }
 
-.indexMain, .loginMain, .registerMain, .registerSucces {
+.indexMain, .loginMain, .registerMain, .registerSucces, .confirmOpinion {
     margin-top: 7%;
     width: 100%;
 }
 
-.indexMain, .loginMain, .registerSucces {
+.indexMain, .loginMain, .registerSucces, .confirmOpinion, .employeeInfo {
     background-color: #0688fa;    
 }
 main .container {
@@ -139,7 +145,7 @@ footer {
     width: 100%;
     height:75px;
     background-color: #0688fa;  
-    position: relative;
+    position: absolute;
     bottom: 0;
 }
 
@@ -230,7 +236,7 @@ main .registerPage a {
     text-align: center;
 }
 /*REJESTRACJA POMYSLNA*/
-.registerSucces {
+.registerSucces, .confirmOpinion, .employeeInfo {
     width: 96%;
     margin: auto;
         margin-top: 10%;
@@ -269,8 +275,165 @@ main .registerPage a {
 }
 
 .backgroundAbout {
-    /*todo fix*/
-    background-image: url(/webapp/img/tlo2.png);
+    /*fix*/
+    background-image: url("../img/tlo2.png");
     background-size: cover;
     margin-bottom: -10%;
 }
+/*REVIEW*/
+.makeOpinion {
+    width: 45%;
+    margin: auto;
+        margin-top: 10%;
+}
+
+.makeOpinion span {
+    margin: 5px;
+    display: block;
+}
+
+.makeOpinion textarea {
+    margin-left: 6px;
+}
+/*REVIEW CONFIRM*/
+.confirmButton {
+    padding: 10%;
+    display: inline;
+}
+.confirmOpinion {
+    font-size: 2rem;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-bottom: 5%;
+}
+
+/*EMPLOYEE*/
+.employee {
+    width: 85%;
+    margin: auto;
+    margin-top: 5%;
+}
+.employee table, .employee th, .employee td {
+    border: 1px solid black;
+}
+.employee th, .employee td {
+    padding: 15px;
+    text-align: center;
+}
+
+/*SERVICES CHOICES*/
+.services {
+    width: 80%;
+    padding: 10%;
+    margin: auto;
+    padding: 2%;
+}
+
+.services .image {
+    width: 225px;
+    height: 125px;
+    background-color: blueviolet;
+    border-radius: 4px;
+}
+
+.services .desc {
+    width: 221px;
+    height: 170px;
+    background-color: forestgreen;
+    border: 2px solid grey;
+    border-radius: 4px;
+    text-align: left;
+}
+.services .desc .myButton {
+    position: relative;
+    display: block;
+    width: 40%;
+    bottom: -30px;
+    left: 10px;
+    font-size: 1rem;
+}
+
+.services table th {
+    padding: 20px;
+}
+
+/*SERVICES DATE*/
+aside {
+    float: left;
+    width: 12%;
+    background-color: #0688fa;
+    padding: 3%;
+    position: absolute;
+    bottom: 0;
+    top: 5%;
+    left: 0;
+}
+.serviceDate {
+    float: left;
+    width: 70%;
+    padding: 2%;
+    margin-left: 18%;
+}
+
+.date {
+    width: 30%;
+    float: left;
+}
+
+.employessDate {
+    width: 68%;
+    float: left;
+    font-size: 0.7rem;
+    margin-left: 15px;
+}
+
+.employessDate .myButton {
+    font-size: 0.7rem;
+}
+
+.employessDate table, .employessDate th, .employessDate td {
+    border: 1px solid black;
+}
+.employessDate th, .employessDate td {
+    padding: 15px;
+    text-align: center;
+}
+
+/*SERVICES DATE*/
+.serviceChange {
+    width: 70%;
+    margin: auto;   
+    font-size: 1.2rem;
+}
+.summary {
+    width: 45%;
+    float: left;
+    padding: 3%;
+}
+
+.summary #datepicker {
+    margin: 4%;
+        margin-left: 0;
+}
+
+.summary p {
+    padding: 1.5%;
+    margin-bottom: 1%;
+}
+.summaryInput {
+    width: 40%;
+    float: left;
+    padding: 3%;
+    margin-top: 6%;
+}
+
+.summaryInput input, .summaryInput span {
+    margin: 3%;
+    margin-left: 0;
+}
+/*REVIEWS ALL*/
+.employeeInfo {
+    font-size: 1.3rem;
+}
+
+

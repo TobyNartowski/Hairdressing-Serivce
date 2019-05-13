@@ -1,4 +1,5 @@
 app.config(function ($routeProvider) {
+    // fix
     $routeProvider
         .when('/', {
             templateUrl: 'index.html'
