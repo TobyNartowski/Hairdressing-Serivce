@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="war">
+  <artifact type="exploded-war" build-on-make="true" name="war">
     <output-path>$PROJECT_DIR$/out/artifacts/war</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -41,12 +41,17 @@
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.3.2.Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.3.6.Final" />
+          <element id="library" level="project" name="Maven: org.webjars.bower:angular:1.7.8" />
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="hairdressing-service" />
           <element id="jpa-descriptors" facet="hairdressing-service/jpa/JPA" />
+          <element id="jpa-descriptors" facet="HairdressingSerivce/jpa/JPA" />
+          <element id="module-output" name="HairdressingSerivce" />
         </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/webapp" />
+      <element id="javaee-facet-resources" facet="HairdressingSerivce/web/Web" />
     </root>
   </artifact>
 </component>

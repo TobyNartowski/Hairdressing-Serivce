@@ -1,20 +1,22 @@
-function loginCtrl($scope, $location, $http, $resource) {
+function loginCtrl($scope) {
 
-    var vm = this;
-    var User = $resource('');
-    vm.user = new User();
-
-    vm.addProduct = function(user) {
-        console.log(vm.user.__proto__);
-        vm.user.$save(function(data) {
-            refresh();
-            vm.user = new User();
-        });
-    };
-
-    vm.loadData = function(id) {
-        vm.details = User.get({UserID: id});
-    };
+    // var vm = this;
+    // // var User = $resource('');
+    // vm.user = new User();
+    //
+    // var errormsg = '';
+    //
+    // vm.addProduct = function(user) {
+    //     console.log(vm.user.__proto__);
+    //     vm.user.$save(function(data) {
+    //         refresh();
+    //         vm.user = new User();
+    //     });
+    // };
+    //
+    // vm.loadData = function(id) {
+    //     vm.details = User.get({UserID: id});
+    // };
 
    $scope.submit = function () {
        let username = $scope.username;
@@ -24,18 +26,18 @@ function loginCtrl($scope, $location, $http, $resource) {
              window.location.href = 'http://localhost:8080/';
 
        } else {
-            $scope.errormsg = 'Wrong login or password !';
+            errormsg = 'Wrong login or password !';
        }
    };
-    var refresh = function refreshData() {
-        vm.users = User.query(
-            function success(data, headers) {
-                console.log('Pobrano dane: ' +  data);
-                console.log(headers('Content-Type'));
-            },
-            function error(reponse) {
-                console.log(response.status); //np. 404
-            });
-    }
+    // var refresh = function refreshData() {
+    //     vm.users = User.query(
+    //         function success(data, headers) {
+    //             console.log('Pobrano dane: ' +  data);
+    //             console.log(headers('Content-Type'));
+    //         },
+    //         function error(reponse) {
+    //             console.log(response.status); //np. 404
+    //         });
+    // }
 
 }

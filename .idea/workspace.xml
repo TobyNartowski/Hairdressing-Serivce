@@ -6,27 +6,26 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0fbb79-60ad-4ebf-9106-68be3dbd3168" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/dao/ClientDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f98a5f41-5932-491f-bcf3-b8d877465791.xml" beforeDir="false" />
+    <list default="true" id="9a0fbb79-60ad-4ebf-9106-68be3dbd3168" name="Default" comment="Product type and service added">
+      <change afterPath="$PROJECT_DIR$/.idea/HairdressingSerivce.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HairdressingSerivce_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HairdressingSerivce_war_exploded2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/HairdressingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/HairdressingServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/dao/EntityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/dao/EntityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ClientResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ClientResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/DiscountResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/DiscountResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/EmployeeResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/EmployeeResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ProductResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ProductResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ProductTypeResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ProductTypeResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ReservationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ReservationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ReviewResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ReviewResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ServiceResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ServiceResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/WorkDateResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/WorkDateResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/js/loginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/js/loginController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,126 +45,60 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="app@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="java@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="java@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="java@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="app: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientResource.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ClientResource.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/js/loginController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state>
+              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapp/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/dao/ClientDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HairdressingServiceApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/HairdressingServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseProxy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/dao/DatabaseProxy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/dao/EntityDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/model/ProductType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/model/Employee.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/model/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReservationResource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ReservationResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductTypeResource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ProductTypeResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="8" column="37" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="8" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -179,6 +112,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>scope</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -208,13 +146,11 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/model/WorkDate.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jboss-web.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/dao/Dao.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0ad649c0-8ff0-440e-87ac-63cede18d12f/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/dao/DatabaseProxy.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/Discount.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/BaseResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/model/Client.java" />
@@ -231,14 +167,22 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/dao/ClientDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/HairdressingServiceApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ClientResource.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/webapp/index.html" />
+        <option value="$PROJECT_DIR$/webapp/bower.json" />
+        <option value="$PROJECT_DIR$/webapp/login.html" />
+        <option value="$PROJECT_DIR$/webapp/js/loginController.js" />
+        <option value="$PROJECT_DIR$/webapp/js/app.js" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -254,9 +198,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1336" />
+    <option name="height" value="762" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -266,113 +210,123 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pl" type="462c0819:PsiDirectoryNode" />
               <item name="openthejar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pl" type="462c0819:PsiDirectoryNode" />
-              <item name="openthejar" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pl" type="462c0819:PsiDirectoryNode" />
-              <item name="openthejar" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pl" type="462c0819:PsiDirectoryNode" />
-              <item name="openthejar" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hairdressing-Serivce" type="462c0819:PsiDirectoryNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hairdressing-service" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HairdressingSerivce" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="hairdressing-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projekty/HairdressingSerivce" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="hairdressing-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projekty/HairdressingSerivce" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="webapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="hairdressing-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projekty/HairdressingSerivce" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="webapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="hairdressing-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projekty/HairdressingSerivce" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="webapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="hairdressing-service" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projekty/HairdressingSerivce" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="webapp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="angular" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556574628751" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;PostgreSQL" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar!/" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/webjars/bower/angular/1.7.8/angular-1.7.8.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.14660195" />
     <property name="project.structure.side.proportion" value="0.33142856" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -408,55 +362,105 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.10" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.10" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="HairdressingSerivce:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_hairdressing-service_2" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="36647" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="HairdressingSerivce:war exploded" />
+        </option>
       </method>
     </configuration>
     <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.10" ALTERNATIVE_JRE_ENABLED="false">
@@ -470,12 +474,13 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_hairdressing-service" />
+        <option name="JNDI_PORT" value="1098" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="53898" />
       </RunnerSettings>
@@ -524,21 +529,18 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method>
+      <method v="2">
+        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="war" />
         </option>
       </method>
     </configuration>
     <list>
-      <item itemvalue="Tomcat Server.Tomcat" />
       <item itemvalue="Application.HairdressingServiceApplication" />
+      <item itemvalue="Tomcat Server.Tomcat" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.10" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.HairdressingServiceApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -565,6 +567,9 @@
       <workItem from="1556787189752" duration="1421000" />
       <workItem from="1556791144065" duration="2386000" />
       <workItem from="1556798036947" duration="1086000" />
+      <workItem from="1558188300042" duration="801000" />
+      <workItem from="1558189121255" duration="103000" />
+      <workItem from="1558192123596" duration="2954000" />
     </task>
     <task id="LOCAL-00001" summary="Product type and service added">
       <created>1556003690934</created>
@@ -577,180 +582,115 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49826000" />
+    <option name="totallyTimeSpent" value="56582000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="-1" width="1366" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="12" />
-      <window_info anchor="bottom" id="Event Log" order="16" sideWeight="0.50053304" side_tool="true" weight="0.32827735" />
-      <window_info anchor="bottom" id="Application Servers" order="8" sideWeight="0.49930555" weight="0.32900944" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="16" />
-      <window_info id="Designer" order="9" />
-      <window_info anchor="right" id="Database" order="9" visible="true" weight="0.22013889" />
-      <window_info id="Structure" order="15" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="14" weight="0.25" />
-      <window_info id="UI Designer" order="10" />
-      <window_info anchor="bottom" id="Debug" order="18" weight="0.39976415" />
-      <window_info anchor="bottom" id="TODO" order="21" />
-      <window_info id="simpleUML" order="13" />
-      <window_info anchor="bottom" id="Messages" order="1" weight="0.3278302" />
-      <window_info anchor="right" id="Palette&#9;" order="10" />
-      <window_info id="Image Layers" order="12" />
-      <window_info anchor="bottom" id="Java Enterprise" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info active="true" anchor="bottom" id="Run" order="17" visible="true" weight="0.4504717" />
-      <window_info anchor="bottom" id="Terminal" order="6" />
-      <window_info id="Persistence" order="6" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="14" visible="true" weight="0.20069444" />
-      <window_info anchor="right" id="Theme Preview" order="11" />
-      <window_info id="Favorites" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="20" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="19" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="22" show_stripe_button="false" />
+      <window_info id="Persistence" order="0" side_tool="true" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="simpleUML" order="5" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2189394" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info id="Web" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.49861112" weight="0.3278302" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="15" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="16" />
-      <window_info anchor="bottom" id="Find" order="15" />
-      <window_info anchor="right" id="Commander" order="13" weight="0.4" />
-      <window_info id="Web" order="17" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="13" />
-      <window_info anchor="right" id="Bean Validation" order="17" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.3278302" />
+      <window_info anchor="bottom" id="Java Enterprise" order="2" weight="0.3121118" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924242" weight="0.32919255" />
+      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Application Servers" order="5" sideWeight="0.49930555" weight="0.32763976" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007576" side_tool="true" weight="0.32919255" />
+      <window_info active="true" anchor="bottom" id="Run" order="10" visible="true" weight="0.41459626" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.39976415" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Database" order="2" weight="0.21969697" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Persistence" order="0" sideWeight="0.50282484" side_tool="true" weight="0.20378788" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="simpleUML" order="5" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.49717513" visible="true" weight="0.2128788" />
+      <window_info id="Structure" order="7" sideWeight="0.50282484" side_tool="true" weight="0.20378788" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info id="Web" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.49861112" weight="0.3278302" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32763976" />
+      <window_info anchor="bottom" id="Java Enterprise" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32919255" />
+      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Application Servers" order="5" sideWeight="0.49930555" weight="0.32900944" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32919255" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Run" order="10" visible="true" weight="0.3431677" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.39976415" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Database" order="2" weight="0.2159091" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.32954547" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Product type and service added" />
     <option name="LAST_COMMIT_MESSAGE" value="Product type and service added" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/META-INF/context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/work_date">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/product_type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/client_reservation">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/core/Application.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/EntityManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/Table.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/model/Reservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/stream/Stream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="934" column="16" selection-start-line="934" selection-start-column="16" selection-end-line="934" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/client_reservation.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.2.Final/hibernate-core-4.3.2.Final.jar!/org/hibernate/Session.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/model/WorkDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.2.Final/hibernate-core-4.3.2.Final.jar!/org/hibernate/SharedSessionContract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.2.Final/hibernate-core-4.3.2.Final.jar!/org/hibernate/SharedSessionContract.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/model/Discount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -791,88 +731,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/Discount.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="2237" column="18" selection-start-line="2237" selection-start-column="18" selection-end-line="2237" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/discount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0ad649c0-8ff0-440e-87ac-63cede18d12f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="260" column="27" selection-start-line="260" selection-start-column="27" selection-end-line="260" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/reflections/reflections/0.9.11/reflections-0.9.11.jar!/org/reflections/Reflections.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1412">
-          <caret line="354" lean-forward="true" selection-start-line="354" selection-end-line="354" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/Path.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/function/Consumer.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java" />
+    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/discount" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0ad649c0-8ff0-440e-87ac-63cede18d12f/console.sql" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Class.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/reflections/reflections/0.9.11/reflections-0.9.11.jar!/org/reflections/Reflections.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/Path.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/BaseResource.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/Produces.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/Consumes.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/Produces.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.9.Final/jaxrs-api-3.0.9.Final.jar!/javax/ws/rs/Consumes.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/DiscountResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -927,13 +796,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar!/com/mysql/cj/jdbc/AbandonedConnectionCleanupThread.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar!/com/mysql/cj/jdbc/AbandonedConnectionCleanupThread.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/resource/ProductTypeResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -984,13 +847,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/client">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/client" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/dao/EntityDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
@@ -1031,6 +888,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/Client" />
+    <entry file="das://0ad649c0-8ff0-440e-87ac-63cede18d12f/schema/app/table/Employee" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/972e477f-f272-48c6-bc5c-5324a7adaadf/console.sql" />
+    <entry file="das://972e477f-f272-48c6-bc5c-5324a7adaadf/schema/app/table/Client" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/openthejar/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/.bowerrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json" />
+    <entry file="file://$PROJECT_DIR$/webapp/js/lib/angular/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/js/lib/angular/bower.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/js/datepicker.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/js/loginController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -1050,7 +988,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited>Web (HairdressingSerivce)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1062,10 +1000,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>angular</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.32528734" />
+                <option value="0.33142856" />
               </list>
             </option>
           </splitter-proportions>
@@ -1085,7 +1024,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>hairdressing-service</last-edited>
+          <last-edited>JPA|HairdressingSerivce</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1109,7 +1048,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <last-edited>Maven: org.webjars.bower:angular:1.7.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
