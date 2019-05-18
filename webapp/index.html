@@ -3,26 +3,26 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/Style.css" />
-    <script type="text/javascript" src="js/lib/angular/angular.js"></script>
-    <script type="text/javascript" src="js/lib/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="js/route.js"></script>
-    <script type="text/javascript" src="js/controller.js"></script>
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/loginController.js"></script>
+    <script src="js/app.js"></script>
 
     <title>Home</title>
 </head>
-<body>
+<body ng-app="mainApp">
     <header>
         <nav>
             <ol>
-                <li><p><a ng-href="/index.html">Super salon usługowy </a></p></li>
-                <li><div class="button"><a ng-href="/view/serviceChoice.html">OFERTA </a></div></li>
-                <li><div class="button"><a ng-href="/view/employee.html">ZESPÓŁ </a></div></li>
-                <li><div class="button"><a ng-href="/view/about.html">O NAS </a></div></li>
-                <li><div class="button"><a ng-href="/view/reviewShowAll.html">OPINIE
+                <li><p><a href="index.html">Super salon usługowy </a></p></li>
+                <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
+                <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
+                <li><div class="button"><a href="info.html">O NAS </a></div></li>
+                <li><div class="button"><a href="reviewShowAll.html">OPINIE
                 </a></div></li>
             </ol>
 <!-- todo            zmienic na twoje konto-->
-            <a ng-href="/view/login.html"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+            <a href="login.html"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
             <div style="clear: both"> </div>
         </nav>
     </header>
@@ -33,7 +33,7 @@
     </main>
         <center>
             <div class="content">
-                <a ng-href="/view/login.html" class="myButton">Zaloguj się !</a>
+                <a href="login.html" class="myButton">Zaloguj się !</a>
             </div>
         </center>
     <footer class="loginFooter"><br/>
