@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/Style.css" />
     <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
@@ -25,25 +26,27 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <h1 style="text-align: center">{{}}</h1>
-    <main class="loginMain" ng-controller="loginCtrl">
-        <div class="login">
-            <div class="loginform">
-                <form action="/" id="myLogin">
-                    <span>Login</span><br/>
-                    <input type="text" id="username" ng-model="username" required><br/>
-                
-                    <span>Password</span><br/>
-                    <input type="password" id="password" ng-model="password" required><br/>
-                    <a ng-click="submit()" class="myButton">Zaloguj się !</a>
-            </form>
+    <div ng-controller="loginCtrl as login">
+        <p style="text-align: center; font-size: 1.7rem">{{login.errormsg}}</p>
+        <main class="loginMain">
+            <div class="login">
+                <div class="loginform">
+                    <form action="/" id="myLogin">
+                        <span>Login</span><br/>
+                        <input type="text" id="username" ng-model="login.username" required><br/>
+
+                        <span>Password</span><br/>
+                        <input type="password" id="password" ng-model="login.password" required><br/>
+                        <a ng-click="login.submit()" class="myButton">Zaloguj się !</a>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="register">
-            <span>Zaloz konto w 10 sekund i<br/> zyskaj rabat 5% na nasze uslugi</span>
-            <a href="register.html" class="myButton">Utwórz konto !</a>
-        </div>
-    </main>
+            <div class="register">
+                <span>Zaloz konto w 10 sekund i<br/> zyskaj rabat 5% na nasze uslugi</span>
+                <a href="register.html" class="myButton">Utwórz konto !</a>
+            </div>
+        </main>
+    </div>
     <footer class="loginFooter"><br/>
         <p>Super salon usługowy</p>
     </footer>

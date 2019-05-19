@@ -12,7 +12,7 @@ public class HairdressingServiceApplication {
     public static void main(String[] args) {
         System.exit(0);
 
-        //loadDummyData();
+//        loadDummyData();
     }
 
     public static void loadDummyData() {
