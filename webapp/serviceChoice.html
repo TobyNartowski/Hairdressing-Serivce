@@ -31,12 +31,15 @@
         <table>
             <tr>
                 <th ng-repeat="s in service.services">
-                    <div class="image"><img src="img/service1.jpeg" width="225px" height="125px"></div>
-                    <div class="desc">
-                        <h2 style="text-align: center;">{{s.name}}</h2><br/>
-                        <span>Czas : {{s.duration}} minut</span><br/>
-                        <span>Koszt: {{s.price}} zł</span>
-                    <a ng-href="login.html" class="myButton"> Rezerwuj</a></div>
+                    <div class="servicePackage">
+                        <div class="image"><img src="img/service1.jpeg" width="225px" height="125px"></div>
+                        <div class="desc">
+                            <h2 style="text-align: center;">{{s.name}}</h2><br/>
+                            <span>Czas : {{s.duration}} minut</span><br/>
+                            <span>Koszt: {{s.price}} zł</span>
+                        </div>
+                    </div>
+                    <a ng-href="serviceDate.html" class="myButton">Rezerwuj</a>
                 </th>
             </tr>
             

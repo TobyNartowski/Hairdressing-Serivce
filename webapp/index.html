@@ -34,7 +34,9 @@
     </main>
         <center>
             <div class="content">
-                <a href="login.html" class="myButton">Zaloguj się !</a>
+                <a  href="login.html" ng-if="getCookie('username').length < 2" class="myButton">Zaloguj się !</a>
+                <a href="serviceChoice.html" ng-if="getCookie('username').length > 1" class="myButton">Zrób rezerwację!</a>
+
             </div>
         </center>
     <footer class="loginFooter"><br/>

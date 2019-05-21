@@ -31,5 +31,5 @@ app.filter('getUser', ['decoration', function(decoration) {
     decorateFilter.$stateful = true;
 
     return decorateFilter;
-}])
+}]);
 
