@@ -6,6 +6,7 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/reviewsController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <title>Reviews</title>
@@ -27,36 +28,26 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <div class="employeeInfo">
-             <span>Wybierz pracownika aby przeczytać opinię !</span>
-        </div>
-    <main class="employee">
+<!--    <div class="employeeInfo">-->
+<!--             <span>Wybierz pracownika aby przeczytać opinię !</span>-->
+<!--        </div>-->
+    <main class="employee" ng-controller="reviewsController as review">
          Wizyty oczekujące i ostatnie 
          <table>
-            <tr>
-                <th>Number</th>
-                <th>Data</th>
-                <th>Status</th>
-                <th>Typ usługi</th>
-                <th>Ocena</th>
-                <th><p>########</p></th>
-            </tr>
+             <thead>
              <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Status Status Status}}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Ocena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Przeczytaj opinie</a></th>
-            </tr>
-             <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Status Status Status}}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Ocena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Przeczytaj opinie</a></th>
-            </tr>
+                 <th>Tytuł</th>
+                 <th>Treść</th>
+                 <th>Data</th>
+             </tr>
+             </thead>
+             <tbody>
+             <tr ng-repeat="r in review.reviews" >
+                 <th>{{r.title}}</th>
+                 <th>{{r.content}}</th>
+                 <th>{{r.date}}</th>
+             </tr>
+             </tbody>
         </table>
     </main>
         <center>

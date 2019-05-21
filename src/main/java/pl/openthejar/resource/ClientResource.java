@@ -23,9 +23,9 @@ public class ClientResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Client save(Client client) {
-        return clientDao.save(client);
+//    @Produces(MediaType.APPLICATION_JSON)
+    public void save(Client client) {
+        clientDao.save(client);
     }
 
     @GET

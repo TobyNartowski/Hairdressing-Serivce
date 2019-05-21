@@ -6,6 +6,7 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/productController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <title>Products</title>
@@ -27,26 +28,29 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="employee">
+    <main class="employee" ng-controller="productController as product">
         Stan produktów :
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Produkt</th>
-                <th>Stan</th>
-                <th>Typ</th>
-                <th>Cena</th>
-                <th><p>########</p></th>
-            </tr>
-             <tr>
-                <th>{{Id}}</th>
-                <th>{{Produkt}}</th>
-                <th>{{Status}}</th>
-                <th>{{Typ}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton"> Zamów {{x}} produktów</a></th>
-            </tr>
-        </table>
+        <center>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nazwa Produkty</th>
+                    <th>Cena</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="p in product.products" >
+                    <th>{{p.id}}</th>
+                    <th>{{p.type.name}}</th>
+                    <th>{{p.type.price}}</th>
+                    <th>{{p.quantity}}</th>
+                    <th><a ng-href="login.html" class="myButton">Zamów produkty !</a></th>
+                </tr>
+                </tbody>
+            </table>
+        </center>
     </main>
         <center>
             <div class="content">

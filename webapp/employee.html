@@ -6,6 +6,7 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/employeeController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
 
@@ -28,25 +29,22 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="employee">
+    <main class="employee" ng-controller="employeeController as employee">
          Wizyty oczekujące i ostatnie 
          <table>
-            <tr>
-                <th>Number</th>
-                <th>Data</th>
-                <th>Status</th>
-                <th>Typ usługi</th>
-                <th>Ocena</th>
-                <th><p>########</p></th>
-            </tr>
-             <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{Status: Status Status</th>
-                <th>{Typ usługi}</th>
-                <th>{{Ocena}</th>
-                 <th><a ng-href="login.html" class="myButton">Przeczytaj opinie</a></th>
-            </tr>
+            <thead>
+                 <tr>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                 </tr>
+            </thead>
+             <tbody>
+                 <tr ng-repeat="p in employee.employees" >
+                     <th>{{p.firstName}}</th>
+                     <th>{{p.lastName}}</th>
+                     <th><a ng-href="login.html" class="myButton">Przeczytaj opinie</a></th>
+                 </tr>
+             </tbody>
         </table>
     </main>
         <center>

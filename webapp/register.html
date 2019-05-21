@@ -6,6 +6,7 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/registerController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <title>Register page</title>
@@ -27,29 +28,29 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="registerMain">
+    <main class="registerMain" ng-controller="registerController as register">
         <div class="registerPage">
             <div class="registerForm">
                 <form>
                     <div class="leftPane">
                         <span>Login</span><br/>
-                        <input type="text"><br/>
+                        <input type="text" id="login" ng-model="register.person.login" required><br/>
                         <span>Hasło</span><br/>
-                        <input type="password"><br/>
-                        <span>Numer telefonu</span><br/>
-                        <input type="password"><br/>
+                        <input type="password" id="hash" ng-model="register.person.hash" required><br/>
+                        <span>Imie</span><br/>
+                        <input type="text" id="firstName" ng-model="register.person.firstName" required><br/>
                     </div>
                     <div class="rightPane">
-                        <span>Imie</span><br/>
-                        <input type="text"><br/>
                         <span>Nazwisko</span><br/>
-                        <input type="text"><br/>
-                        <span>Email</span><br/>
-                        <input type="password"><br/>
+                        <input type="text" id="lastName" ng-model="register.person.lastName" required><br/>
+                        <span>Numer telefonu</span><br/>
+                        <input type="tel" id="phoneNumber" ng-model="register.person.phoneNumber" required><br/>
+                        <span style="visibility: hidden">Email</span>
+                        <input type="tel" style="visibility: hidden"><br/>
                     </div>
                     <span>Zakładając konto oświadczasz, że          zapoznałeś się z Regulaminem serwisu            ssu.io
                         i akceptujesz jego treść. Oświadczasz także, iż ukończyłeś trzynaście lat<br/><br/></span>
-                    <a ng-href="register_succes.html" class="myButton">Zarejestruj się !</a>
+                    <a ng-click="register.addPerson(register.person)" class="myButton">Zarejestruj się !</a>
             </form>
             </div>
             
