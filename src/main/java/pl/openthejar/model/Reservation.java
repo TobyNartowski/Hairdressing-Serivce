@@ -20,4 +20,7 @@ public class Reservation extends BaseEntity implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private WorkDate workDate;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Client client;
 }

@@ -36,15 +36,8 @@ public class Client extends BaseEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Discount> discounts = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Reservation> reservations = new HashSet<>();
-
     public void addDiscount(Discount discount) {
         discounts.add(discount);
-    }
-
-    public void addReservation(Reservation reservation) {
-        reservations.add(reservation);
     }
 
     private void addLoginCredentials(String login, String hash) {

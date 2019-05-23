@@ -10,16 +10,16 @@ import java.util.HashSet;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
+        loadDummyData();
         System.exit(0);
-
-//        loadDummyData();
     }
 
-    public static void loadDummyData() {
+    private static void loadDummyData() {
         Client client = new Client("John", "Doe", 123123123L);
         client.addDiscount(new Discount("Regular customer", 10));
 
         Reservation reservation = new Reservation();
+        reservation.setClient(client);
 
         Service service = new Service("First service", 600, 1000);
         service.setProducts(new HashSet<>(Arrays.asList(
@@ -34,10 +34,8 @@ public class HairdressingServiceApplication {
         WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
         reservation.setWorkDate(workDate);
 
-        client.addReservation(reservation);
-
-        EntityDao<Client> clientDao = new EntityDao<>(Client.class);
-        clientDao.save(client);
-        clientDao.cleanUp();
+        EntityDao<Reservation> entityDao = new EntityDao<>(Reservation.class);
+        entityDao.save(reservation);
+        entityDao.cleanUp();
     }
 }
