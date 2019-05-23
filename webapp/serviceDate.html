@@ -6,27 +6,13 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/servicesController.js"></script>
+    <script src="js/workdatesController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-        $(document).ready(function(){
-            $('#datepicker').datepicker();
-
-            $('#datepicker').focus(function(){
-                $('#datepicker').datepicker('show');
-            });
-
-            $('#datepicker').click(function(){
-                $('#datepicker').datepicker('show');
-            });
-            $('#datepicker').datepicker('show');
-            });
-    </script>
     <title>Date service</title>
 </head>
-<body>
+<body ng-controller="servicesController as service">
     <header>
         <nav>
              <ol>
@@ -43,75 +29,36 @@
         </nav>
     </header>
     <aside>Wybrane usługi:
-       <textarea disabled style="resize: none" rows="10" cols="20">Jakas tam usługa 
-Jakas tam usluga2
+       <textarea disabled style="resize: none" rows="10" cols="20">Nazwa usługi : {{service.serviceName}}
         </textarea>
     </aside>
     <main class="serviceDate">
-        <div class="date">
-            <p>Wybierz date terminu wizyty: 
-                <input type="text" id="datepicker">
-            </p>
-        </div>
-        <div class="employessDate">
+        <div class="employessDate" ng-controller="workdatesController as date">
             <table>
-            <tr>
-                <th>Number</th>
-                <th>Data</th>
-                <th>Pracownik</th>
-                <th>Typ usługi</th>
-                <th>Cena</th>
-                <th><p>########</p></th>
-            </tr>
-             <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Pracownik }}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Rezerwuj</a></th>
-            </tr>
-                <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Pracownik  Pracownik}}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Rezerwuj</a></th>
-            </tr>
-                <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Pracownik Pracownik }}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Rezerwuj</a></th>
-            </tr>
-                <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Pracownik Pracownik Pracownik}}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Rezerwuj</a></th>
-            </tr>
-                <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Pracownik Pracownik Pracownik}}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Rezerwuj</a></th>
-            </tr>
-                <tr>
-                <th>{{Number}}</th>
-                <th>{{Data}}</th>
-                <th>{{Pracownik Pracownik Pracownik}}</th>
-                <th>{{Typ usługi}}</th>
-                <th>{{Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton">Rezerwuj</a></th>
-                </tr>
-        </table>
+                <thead>
+                    <tr>
+                        <th>Dzień</th>
+                        <th>Godziny </th>
+                        <th>Pracownicy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in date.dates">
+                        <td>{{d.date}}</td>
+                        <td>----------</td>
+                        <td>
+                            <table>
+                                <tbody>
+                                <tr ng-repeat="e in d.employees">
+                                    <th>{{e.firstName + ' ' + e.lastName}}</th>
+                                    <th><a ng-click="date.saveServiceInto(d.date, e.firstName, e.lastName)" class="myButton">Wybierz datę</a></th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
     <div style="clear: both"></div>

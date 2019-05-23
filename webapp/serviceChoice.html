@@ -29,6 +29,7 @@
     </header>
     <main class="services" ng-controller="servicesController as service">
         <table>
+            <tbody>
             <tr>
                 <th ng-repeat="s in service.services">
                     <div class="servicePackage">
@@ -39,10 +40,10 @@
                             <span>Koszt: {{s.price}} zł</span>
                         </div>
                     </div>
-                    <a ng-href="serviceDate.html" class="myButton">Rezerwuj</a>
+                    <a ng-click="service.makeReservation(s.name)" class="myButton">Rezerwuj</a>
                 </th>
             </tr>
-            
+            </tbody>
         </table>
     </main>
     <footer class="loginFooter"><br/>

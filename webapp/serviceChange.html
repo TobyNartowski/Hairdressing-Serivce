@@ -6,24 +6,10 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/workdatesController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script>
-        $(document).ready(function(){
-            var datepicker = $('#datepicker');
-            datepicker.datepicker();
-
-            datepicker.focus(function(){
-                $('#datepicker').datepicker('show');
-            });
-
-            datepicker.click(function(){
-                $('#datepicker').datepicker('show');
-            });
-            datepicker.datepicker('show');
-            });
-    </script>
     <title>Change service</title>
 </head>
 <body ng-controller="loginCtrl">
@@ -42,26 +28,24 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="serviceChange">
+    <main class="serviceChange" ng-controller="workDatesInfo as date">
         <div class="summary">
             <p style="font-size: 1.8rem">Podsumowanie</p>
-            <p>Usługa: {{nazwaUsługi + kolor}}</p>
-            <p>Termin: {{data}}</p>
-            <p>Pracownik: {{pracownik}}</p>
-            <p>Wybierz date terminu wizyty:<br/>
-                <input type="text" id="datepicker">
+            <p>Usługa: <span>{{date.serviceName}}</span></p>
+            <p>Termin: <span>{{date.date}}</span></p>
+            <p>Pracownik: <span>{{date.employeeFirstName + date.employeeLastName}}</span></p><br/><br/>
+            <p>Aby zmienić temrin wizyty:<br/>
+                <a ng-href="serviceDate.html" class="myButton"> Wróć do terminów</a>
             </p>
         </div>
         <div class="summaryInput">
-            <span>Imię:</span><br/>
-            <input type="text"><br/>
-            <span>Nazwisko:</span><br/>
-            <input type="text"><br/>
-            <span>Numer telefonu:</span><br/>
-            <input type="tel"><br/>
-            <span>Adres e-mail:</span><br/>
-            <input type="text"><br/><br/>
-            <a ng-href="login.html" class="myButton"> Rezerwuj</a>
+            <span>Użytkownik :</span><br/>
+            <h4>{{date.username}}</h4><br/>
+            <span>Imię :</span><br/>
+            <h4>{{date.firstName}}</h4><br/>
+            <span>Nazwisko :</span><br/>
+            <h4>{{date.lastName}}</h4><br/>
+            <a ng-click="date.saveService()" class="myButton"> Rezerwuj</a>
         </div>
         <div style="clear: both"></div>
     </main>

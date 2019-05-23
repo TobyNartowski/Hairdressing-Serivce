@@ -1,18 +1,30 @@
-angular.module('mainApp').controller('servicesController', function servicesController($http) {
-    var vm = this;
+angular.module('mainApp').controller('servicesController', function servicesController($scope, $http, $window) {
+    var object = this;
 
     function refreshData() {
         $http({
             method : 'GET',
             url : 'api/services'
         }).then(function success(response) {
-            vm.services = response.data;
-            console.log(vm.services);
+            object.services = response.data;
+            console.log(object.services);
         }, function error(response) {
             console.log('API error ' + response.status);
         });
     }
 
-    vm.appName = 'Reviews';
+    object.makeReservation = function(name) {
+        console.log(name);
+        name = name.replace(/\W/g, '');
+        $scope.setServiceCookie('service', name);
+
+        $window.location.href = 'http://localhost:8080/serviceDate.html';
+    };
+
+    getService = function() {
+        object.serviceName =  $scope.getCookie('service');
+    };
+
     refreshData();
+    getService();
 });

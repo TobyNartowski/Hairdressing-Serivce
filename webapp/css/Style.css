@@ -420,6 +420,11 @@ aside {
     padding: 1.5%;
     margin-bottom: 1%;
 }
+
+.summary span {
+    font-weight: bold;
+}
+
 .summaryInput {
     width: 40%;
     float: left;
