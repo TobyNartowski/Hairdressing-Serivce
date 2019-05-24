@@ -44,4 +44,18 @@ public class ReservationResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getReservation(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
+        if (done == null) {
+            return Response.ok(dao.findAll(), MediaType.APPLICATION_JSON_TYPE).build();
+        } else if (done) {
+            return Response.ok(dao.getDoneReservations(), MediaType.APPLICATION_JSON_TYPE).build();
+        } else {
+            return Response.ok(dao.getUndoneReservations(), MediaType.APPLICATION_JSON_TYPE).build();
+        }
+    }
+
 }
