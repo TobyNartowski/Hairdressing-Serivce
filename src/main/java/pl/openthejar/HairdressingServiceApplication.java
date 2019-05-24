@@ -10,11 +10,9 @@ import java.util.*;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
-//        EmployeeDao employeeDao = new EmployeeDao();
-//        employeeDao.getAllReservations(employeeDao.get(11L));
 
-//        loadDummyData();
-//        loadMoreDummyData();
+        loadDummyData();
+        loadMoreDummyData();
         System.exit(0);
     }
 
@@ -25,7 +23,7 @@ public class HairdressingServiceApplication {
         Reservation reservation = new Reservation();
         reservation.setClient(client);
 
-        Service service = new Service("Fifth service", 600, 1000);
+        Service service = new Service("Second service", 600, 1000);
         service.setProducts(new ArrayList<>(Arrays.asList(
                 new Product(new EntityDao<>(ProductType.class).findAll().get(0), 3),
                 new Product(new EntityDao<>(ProductType.class).findAll().get(1), 2)

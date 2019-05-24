@@ -1,6 +1,7 @@
 package pl.openthejar.model;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,4 +24,7 @@ public class Reservation extends BaseEntity implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Client client;
+
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean done = false;
 }
