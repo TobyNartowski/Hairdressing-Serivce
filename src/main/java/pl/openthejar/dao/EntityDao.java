@@ -27,6 +27,14 @@ public class EntityDao<T extends BaseEntity> extends DatabaseProxy {
         return object;
     }
 
+    public T saveOrUpdate(T object) {
+        EntityTransaction tx = entityManager.getTransaction();
+        tx.begin();
+        entityManager.merge(object);
+        tx.commit();
+        return object;
+    }
+
     public T get(Long id) {
         return entityManager.find(type, id);
     }

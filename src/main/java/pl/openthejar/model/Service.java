@@ -4,8 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -28,5 +28,5 @@ public class Service extends BaseEntity implements Serializable {
     private Integer price;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    Set<Product> products = new HashSet<>();
+    List<Product> products = new ArrayList<>();
 }
