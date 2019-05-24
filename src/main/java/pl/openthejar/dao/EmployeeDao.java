@@ -20,7 +20,8 @@ public class EmployeeDao extends EntityDao<Employee> {
 
         List<Reservation> result = new ArrayList<>();
         for (Reservation reservation : typedQuery.getResultList()) {
-            if (DateUtils.isToday(reservation.getWorkDate().getDate())
+            if (reservation.getWorkDate() != null
+                    && DateUtils.isToday(reservation.getWorkDate().getDate())
                     && reservation.getWorkDate().getEmployees().contains(employee)) {
                 result.add(reservation);
             }

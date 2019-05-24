@@ -5,8 +5,10 @@ import pl.openthejar.dao.EntityDao;
 import pl.openthejar.model.Employee;
 import pl.openthejar.model.Reservation;
 
+import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/employees")
@@ -30,7 +32,12 @@ public class EmployeeResource {
     @GET
     @Path("/{id}/reservations")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Reservation> todaysReservations(@PathParam("id") Long id) {
-        return dao.getAllReservations(dao.get(id));
+    public Response todaysReservations(@PathParam("id") Long id) {
+        try {
+            Employee employee = dao.get(id);
+            return Response.ok(dao.getAllReservations(employee), MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 }

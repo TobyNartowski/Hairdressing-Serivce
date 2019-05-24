@@ -10,9 +10,8 @@ import java.util.*;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
-
-        loadDummyData();
-        loadMoreDummyData();
+//        loadDummyData();
+//        loadMoreDummyData();
         System.exit(0);
     }
 

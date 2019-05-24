@@ -23,7 +23,6 @@ public class ClientResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
     public void save(Client client) {
         clientDao.save(client);
     }
@@ -35,6 +34,30 @@ public class ClientResource {
         try {
             Client client = clientDao.authenticateClient(username, hash);
             return Response.ok(client, MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @GET
+    @Path("/{id}/reviews")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getReviews(@PathParam("id") Long id) {
+        try {
+            Client client = clientDao.get(id);
+            return Response.ok(clientDao.getReviews(client), MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @GET
+    @Path("/{id}/reservations")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getReservations(@PathParam("id") Long id) {
+        try {
+            Client client = clientDao.get(id);
+            return Response.ok(clientDao.getReservations(client), MediaType.APPLICATION_JSON_TYPE).build();
         } catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
