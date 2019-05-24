@@ -1,16 +1,18 @@
 package pl.openthejar.resource;
 
-import pl.openthejar.dao.EntityDao;
+import pl.openthejar.dao.ReservationDao;
 import pl.openthejar.model.Reservation;
 
+import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/reservations")
 public class ReservationResource {
 
-    private EntityDao<Reservation> dao = new EntityDao<>(Reservation.class);
+    private ReservationDao dao = new ReservationDao();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -23,5 +25,23 @@ public class ReservationResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Reservation save(Reservation reservation) {
         return dao.save(reservation);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response done(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
+        try {
+            Reservation reservation = dao.get(id);
+
+            if (done == null) {
+                return Response.status(Response.Status.BAD_REQUEST).build();
+            } else {
+                return Response.ok(dao.changeStatus(reservation, done), MediaType.APPLICATION_JSON_TYPE).build();
+            }
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 }
