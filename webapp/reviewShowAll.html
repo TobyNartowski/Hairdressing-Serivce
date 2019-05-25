@@ -29,21 +29,26 @@
         </nav>
     </header>
     <main class="employee" ng-controller="reviewsController as review">
-        Opinie o ostatnich wizytach
-<!--        todo filtr dla usera-->
+        <center ng-init="review.refreshData()"><h3>Opinie o naszych wizytach</h3></center>
          <table>
              <thead>
              <tr>
+                 <th>Usługa</th>
                  <th>Tytuł</th>
                  <th>Treść</th>
+                 <th>Pracownik</th>
+                 <th>Ocenił</th>
                  <th>Data</th>
              </tr>
              </thead>
              <tbody>
              <tr ng-repeat="r in review.reviews" >
-                 <th>{{r.title}}</th>
-                 <th>{{r.content}}</th>
-                 <th>{{r.date}}</th>
+                 <th>{{r.service.name}}</th>
+                 <th>{{r.review.title}}</th>
+                 <th>{{r.review.content}}</th>
+                 <th>{{r.workDate.employees[0].firstName + ' ' + r.workDate.employees[0].lastName}}</th>
+                 <th>{{r.client.firstName + ' ' + r.client.lastName}}</th>
+                 <th>{{r.workDate.date}}</th>
              </tr>
              </tbody>
         </table>

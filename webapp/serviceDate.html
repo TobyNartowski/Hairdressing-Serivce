@@ -34,23 +34,23 @@
     </aside>
     <main class="serviceDate">
         <div class="employessDate" ng-controller="workdatesController as date">
-            <table>
+            <table style="font-size: 1.05rem">
                 <thead>
                     <tr>
                         <th>Dzień</th>
-                        <th>Godziny </th>
+                        <th style="width: 120px">Godziny</th>
                         <th>Pracownicy</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="d in date.dates">
-                        <td>{{d.date}}</td>
-                        <td>----------</td>
+                        <td><p ng-bind="d.date | date:'MM/dd/yyyy'"> </p></td>
+                        <td><span ng-bind="d.date | date:'hh:mm'"> </span> - <span ng-bind="d.date + 1800000 | date:'hh:mm'"> </span></td>
                         <td>
-                            <table>
+                            <table style="border: 0;">
                                 <tbody>
                                 <tr ng-repeat="e in d.employees">
-                                    <th>{{e.firstName + ' ' + e.lastName}}</th>
+                                    <th style="font-weight: normal">{{e.firstName + ' ' + e.lastName}}</th>
                                     <th><a ng-click="date.saveServiceInto(d.date, e.firstName, e.lastName)" class="myButton">Wybierz datę</a></th>
                                 </tr>
                                 </tbody>

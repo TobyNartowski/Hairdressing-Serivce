@@ -14,6 +14,7 @@ app.run(function ($rootScope, $cookies) {
         $cookies.remove('username');
         $cookies.remove('firstName');
         $cookies.remove('lastName');
+        $cookies.remove('id');
     };
     $rootScope.removeAllServiceCookies = function () {
         $cookies.remove('username');

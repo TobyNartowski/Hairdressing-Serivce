@@ -42,7 +42,7 @@
                  <tr ng-repeat="p in employee.employees" >
                      <th>{{p.firstName}}</th>
                      <th>{{p.lastName}}</th>
-                     <th><a ng-href="login.html" class="myButton">Przeczytaj opinie</a></th>
+                     <th><a ng-click="employee.saveEmployee(p.firstName + '_' + p.lastName)" class="myButton">Przeczytaj opinie<br/>o tym pracowniku</a></th>
                  </tr>
              </tbody>
         </table>

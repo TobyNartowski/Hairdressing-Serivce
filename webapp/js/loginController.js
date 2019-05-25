@@ -13,6 +13,17 @@ function loginCtrl($scope, $window, $timeout, $http) {
             console.log('API error ' + response.status);
         });
     };
+    this.getEmployeeData = function () {
+        $http({
+            method : 'GET',
+            url : 'api/employees'
+        }).then(function success(response) {
+            object.employee = response.data;
+            console.log(object.employee);
+        }, function error(response) {
+            console.log('API error ' + response.status);
+        });
+    };
 
     this.submit = function () {
         object.found = null;
@@ -28,6 +39,7 @@ function loginCtrl($scope, $window, $timeout, $http) {
         if(object.found != null) {
             $window.location.href = 'http://localhost:8080/';
             $scope.setCookie(this.username, object.found.firstName, object.found.lastName);
+            $scope.setServiceCookie('id', object.found.id);
 
         } else {
             this.errormsg = 'Wrong login or password';
@@ -36,6 +48,31 @@ function loginCtrl($scope, $window, $timeout, $http) {
                 object.errormsg = '';
             }, 3000);
 
+        }
+    };
+
+    this.submitEmployee = function () {
+        object.found = null;
+
+        let needle = object.username;
+        let bigNeedle = object.password;
+        for (let i = 0; i < object.employee.length; i++){
+            if (object.employee[i].login == needle && object.employee[i].hash == bigNeedle){
+                object.found = object.employee[i];
+            }
+        }
+
+        if(object.found != null) {
+            $window.location.href = 'http://localhost:8080/';
+            $scope.setCookie(this.username, object.found.firstName, object.found.lastName);
+            $scope.setServiceCookie('id', object.found.id);
+
+        } else {
+            this.errormsg = 'Wrong login or password';
+
+            $timeout(function () {
+                object.errormsg = '';
+            }, 3000);
         }
     };
     this.getData();

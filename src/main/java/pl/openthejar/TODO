@@ -1,7 +1,8 @@
-work-dates : dzien - godzina (od do) zmienic samemu
-
 rest pracownika z jego dzisiejszymi wizytami // po id tylko 1 pracownik zwracany, wszystkie jego uslugi
 rest z opiniami jednego klineta
 
 uslugi zrobione typowo dla klineta/pracownika + wykonane lub nie
 
+
+///
+co sie odpierdala w reservation resource //id

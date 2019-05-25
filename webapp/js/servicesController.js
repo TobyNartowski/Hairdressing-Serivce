@@ -14,11 +14,22 @@ angular.module('mainApp').controller('servicesController', function servicesCont
     }
 
     object.makeReservation = function(name) {
-        console.log(name);
-        name = name.replace(/\W/g, '');
-        $scope.setServiceCookie('service', name);
+        if($scope.getCookie('username').length > 1) {
 
-        $window.location.href = 'http://localhost:8080/serviceDate.html';
+            console.log(name);
+            name = name.replace(/\W/g, '');
+            $scope.setServiceCookie('service', name);
+
+            $window.location.href = 'http://localhost:8080/serviceDate.html';
+        } else {
+            let message = angular.element(document.querySelector('.errorText'));
+            message.addClass('errorTextActive');
+            setTimeout(function()
+                {
+                    message.removeClass('errorTextActive');
+                }
+                , 800);
+        }
     };
 
     getService = function() {

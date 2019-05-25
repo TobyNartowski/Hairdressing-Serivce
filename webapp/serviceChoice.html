@@ -28,6 +28,7 @@
         </nav>
     </header>
     <main class="services" ng-controller="servicesController as service">
+        <center><h2 class="errorText" ng-if="getCookie('username').length < 2" style="color: red">Zaloguj się aby kontynuować !</h2></center>
         <table>
             <tbody>
             <tr>

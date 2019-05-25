@@ -441,4 +441,51 @@ aside {
     font-size: 1.3rem;
 }
 
+/*INDEX USER RESERVATIONS */
+.userReservations table, .userReservations th, .userReservations td, .userHistory table, .userHistory th, .userHistory td  {
+    border: 1px solid black;
+}
+.userReservations th, .userReservations td, .userHistory th, .userHistory td{
+    padding: 15px;
+    text-align: center;
+}
 
+.userReservations {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    float: left;
+}
+
+.userHistory {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    float: left;
+}
+
+.errorText {
+    font-size: 1.4rem;
+    transition: font-size 0.4s;
+}
+
+.errorTextActive {
+    font-size: 2.8rem;
+    transition: font-size 0.4s;
+}
+
+/*EMPLOYEE INDEX*/
+.employeeLogOut {
+    position: absolute;
+    right: -80%;
+    width: 100%;
+}
+
+.employeeOptions .optionsInfo{
+    font-size: 1.2rem;
+    color: black;
+}
+.employeeOptions .optionsInfo:hover{
+    font-size: 1.2rem;
+    color: white;
+}

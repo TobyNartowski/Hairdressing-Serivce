@@ -37,20 +37,18 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
     };
     object.getComleteInfo();
 
-    object.saveService = function () {
+    object.saveService = function (person) {
         $scope.removeAllServiceCookies();
-        // $http({
-        //     method : 'POST',
-        //     url : 'api/clients',
-        //     data: person
-        // }).then(function success(response) {
-        //     person = {};
-        //     $window.location.href = 'http://localhost:8080/register_succes.html';
-        // }, function error(response) {
-        //     console.log(response);
-        // });
-
-        $window.location.href = 'http://localhost:8080/serviceAccepted.html';
+        $http({
+            method : 'PUT',
+            url : 'api/reservations/1?done=false',
+            data: person
+        }).then(function success(response) {
+            person = {};
+            $window.location.href = 'http://localhost:8080/serviceAccepted.html';
+        }, function error(response) {
+            console.log(response);
+        });
     };
 
 
