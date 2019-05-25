@@ -20,6 +20,16 @@ public class ClientResource {
         return clientDao.findAll();
     }
 
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getOne(@PathParam("id") Long id) {
+        try {
+            return Response.ok(clientDao.get(id), MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -54,10 +64,10 @@ public class ClientResource {
     @GET
     @Path("/{id}/reservations")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getReservations(@PathParam("id") Long id) {
+    public Response getReservations(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
         try {
             Client client = clientDao.get(id);
-            return Response.ok(clientDao.getReservations(client), MediaType.APPLICATION_JSON_TYPE).build();
+            return Response.ok(clientDao.getReservations(client, done), MediaType.APPLICATION_JSON_TYPE).build();
         } catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

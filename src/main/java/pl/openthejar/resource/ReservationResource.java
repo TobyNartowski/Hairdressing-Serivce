@@ -7,7 +7,6 @@ import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("/reservations")
 public class ReservationResource {
@@ -16,8 +15,25 @@ public class ReservationResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Reservation> getAll() {
-        return dao.findAll();
+    public Response getAll(@QueryParam("done") Boolean done) {
+        if (done == null) {
+            return Response.ok(dao.findAll(), MediaType.APPLICATION_JSON_TYPE).build();
+        } else if (done) {
+            return Response.ok(dao.getDoneReservations(), MediaType.APPLICATION_JSON_TYPE).build();
+        } else {
+            return Response.ok(dao.getUndoneReservations(), MediaType.APPLICATION_JSON_TYPE).build();
+        }
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getOne(@PathParam("id") Long id) {
+        try {
+            return Response.ok(dao.get(id), MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @POST
@@ -44,18 +60,4 @@ public class ReservationResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
-
-    @GET
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getReservation(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
-        if (done == null) {
-            return Response.ok(dao.findAll(), MediaType.APPLICATION_JSON_TYPE).build();
-        } else if (done) {
-            return Response.ok(dao.getDoneReservations(), MediaType.APPLICATION_JSON_TYPE).build();
-        } else {
-            return Response.ok(dao.getUndoneReservations(), MediaType.APPLICATION_JSON_TYPE).build();
-        }
-    }
-
 }
