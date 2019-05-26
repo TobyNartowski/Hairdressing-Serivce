@@ -22,6 +22,7 @@ app.run(function ($rootScope, $cookies) {
         $cookies.remove('employeeFirstName');
         $cookies.remove('employeeLastName');
         $cookies.remove('service');
+        $cookies.remove('serviceId');
     };
     $rootScope.getCookie = function getCookie(name) {
         var value = "; " + document.cookie;
