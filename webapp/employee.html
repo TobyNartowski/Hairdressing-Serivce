@@ -30,19 +30,20 @@
         </nav>
     </header>
     <main class="employee" ng-controller="employeeController as employee">
-         Wizyty oczekujące i ostatnie 
+         Nasi pracownicy
          <table>
             <thead>
                  <tr>
                     <th>Imie</th>
                     <th>Nazwisko</th>
+                     <th>Przeczytaj</th>
                  </tr>
             </thead>
              <tbody>
                  <tr ng-repeat="p in employee.employees" >
                      <th>{{p.firstName}}</th>
                      <th>{{p.lastName}}</th>
-                     <th><a ng-click="employee.saveEmployee(p.firstName + '_' + p.lastName)" class="myButton">Przeczytaj opinie<br/>o tym pracowniku</a></th>
+                     <th><a ng-click="employee.saveEmployee(p.id)" class="myButton">Przeczytaj opinie<br/>o tym pracowniku</a></th>
                  </tr>
              </tbody>
         </table>

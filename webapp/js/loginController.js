@@ -63,7 +63,7 @@ function loginCtrl($scope, $window, $timeout, $http) {
         }
 
         if(object.found != null) {
-            $window.location.href = 'http://localhost:8080/';
+            $window.location.href = 'http://localhost:8080/indexEmployee.html';
             $scope.setCookie(this.username, object.found.firstName, object.found.lastName);
             $scope.setServiceCookie('id', object.found.id);
 

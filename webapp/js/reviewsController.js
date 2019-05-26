@@ -5,43 +5,47 @@ angular.module('mainApp').controller('reviewsController', function reviewsContro
     object.refreshData = function() {
         $http({
             method : 'GET',
-            url : 'api/reservations/1?done=true'
+            url : 'api/reservations?done=true'
         }).then(function success(response) {
-            object.reviews = response.data;
-            console.log(object.reviews);
-        }, function error(response) {
-            console.log('API error ' + response.status);
+            for (let i = 0; i < response.data.length; i++) {
+                if(response.data[i].review == null) {
+                    response.data[i] = null;
+                }
+                object.reviews = response.data;
+            } function error(response) {
+                console.log(response);
+            }
         });
         object.dataLoaded = true;
     };
 
-    this.getEmployeeData = function () {
+    object.getEmployeeData = function () {
+        $http({
+            method : 'GET',
+            url : 'api/employees/' + object.emp + '/reservations?done=true'
+        }).then(function success(response) {
+            object.employee = response.data;
+            console.log(object.employee);
 
-        object.found = null;
-        
-        console.log(object.emp);
-        console.log(object.reviews);
-        for (let i = 0; i < object.reviews.length; i++){
-            let employee = object.reviews[i].workDate.employees[0].firstName;
-            employee += object.reviews[i].workDate.employees[0].lastName;
-            console.log(employee);
-            if (employee == object.employee){
-                object.found = object.reviews[i];
-                console.log('fouind ' + employee + 'czyli' + object.employee);
+            if(object.employee[0] == null || object.employee[0] == undefined || object.employee.length == 0) {
+                object.dataPresent = 0;
+            } else {
+                object.dataPresent = object.employee[0].id > 1 ? 1 : 0;
             }
-        }
+
+        }, function error(response) {
+            object.dataPresent = 0;
+            console.log('API error ' + response.status);
+        });
 
     };
 
     object.getEmployee = function () {
-        object.refreshData();
         object.emp = $scope.getCookie('emp');
-        object.employee = object.emp;
-        object.emp = object.emp.replace('_', ' ');
 
+        object.getEmployeeData();
         $scope.removeServiceCookie('emp');
-        return object.emp;
-
-
     }
+
+
 });

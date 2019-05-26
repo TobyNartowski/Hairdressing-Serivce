@@ -29,8 +29,8 @@
         </nav>
     </header>
     <main class="employee" ng-controller="productController as product">
-        Stan produktów :
         <center>
+            <h3>Stan produktów :</h3>
             <table>
                 <thead>
                 <tr>
@@ -46,7 +46,7 @@
                     <th>{{p.type.name}}</th>
                     <th>{{p.type.price}}</th>
                     <th>{{p.quantity}}</th>
-                    <th><a ng-href="login.html" class="myButton">Zamów produkty !</a></th>
+                    <th><a ng-href="#" class="myButton">Zamów produkty !</a></th>
                 </tr>
                 </tbody>
             </table>
@@ -54,7 +54,7 @@
     </main>
         <center>
             <div class="content">
-                <a ng-href="login.html" class="myButton">Powrót !</a>
+                <a href="indexEmployee.html" class="myButton">Powrót !</a>
             </div>
         </center>
 

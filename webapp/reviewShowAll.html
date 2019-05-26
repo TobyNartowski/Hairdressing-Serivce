@@ -42,7 +42,7 @@
              </tr>
              </thead>
              <tbody>
-             <tr ng-repeat="r in review.reviews" >
+             <tr ng-repeat="r in review.reviews" ng-if="r != null">
                  <th>{{r.service.name}}</th>
                  <th>{{r.review.title}}</th>
                  <th>{{r.review.content}}</th>

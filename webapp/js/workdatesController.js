@@ -19,7 +19,18 @@ angular.module('mainApp').controller('workdatesController', function workdatesCo
         $scope.setServiceCookie('employeeFirstName', firstName);
         $scope.setServiceCookie('employeeLastName', lastName);
 
-        $window.location.href = 'http://localhost:8080/serviceChange.html';
+        // $http({
+        //     method : 'POST',
+        //     url : 'api/reservations',
+        //     data: object.Reservation
+        // }).then(function success(response) {
+            $window.location.href = 'http://localhost:8080/serviceChange.html';
+        //
+        // }, function error(response) {
+        //     console.log(response);
+        // });
+
+
     };
     refreshData();
 });
@@ -37,18 +48,17 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
     };
     object.getComleteInfo();
 
-    object.saveService = function (person) {
+    object.saveService = function () {
         $scope.removeAllServiceCookies();
-        $http({
-            method : 'PUT',
-            url : 'api/reservations/1?done=false',
-            data: person
-        }).then(function success(response) {
-            person = {};
-            $window.location.href = 'http://localhost:8080/serviceAccepted.html';
-        }, function error(response) {
-            console.log(response);
-        });
+        // $http({
+        //     method : 'PUT',
+        //     url : 'api/reservations/1?done=false',
+        //     // data:
+        // }).then(function success(response) {
+        //     $window.location.href = 'http://localhost:8080/serviceAccepted.html';
+        // }, function error(response) {
+        //     console.log(response);
+        // });
     };
 
 

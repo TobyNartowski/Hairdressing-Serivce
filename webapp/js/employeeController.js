@@ -20,6 +20,4 @@ angular.module('mainApp').controller('employeeController', function employeeCont
 
     object.appName = 'Employees';
     refreshData();
-
-    object.
 });

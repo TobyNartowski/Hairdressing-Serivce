@@ -284,7 +284,7 @@ main .registerPage a {
 .makeOpinion {
     width: 45%;
     margin: auto;
-        margin-top: 10%;
+        margin-top: 5%;
 }
 
 .makeOpinion span {
@@ -486,6 +486,7 @@ aside {
     color: black;
 }
 .employeeOptions .optionsInfo:hover{
+    font-size: 1.2rem;
     font-size: 1.2rem;
     color: white;
 }

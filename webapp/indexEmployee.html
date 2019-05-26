@@ -16,9 +16,10 @@
     <nav>
         <ol>
             <li><p><a href="index.html">Super salon usługowy </a></p></li>
-            <li><a class="employeeOptions" href="#"><span class="optionsInfo">Stan magazynów</span></a></li>
-            <li><a class="employeeOptions" href="#"><span class="optionsInfo">Zobacz opinie</span></a></li>
+            <li><a class="employeeOptions" href="employeeProducts.html"><span class="optionsInfo">Stan magazynów</span></a></li>
+            <li><a class="employeeOptions" href="employeeReview.html"><span class="optionsInfo">Zobacz opinie</span></a></li>
         </ol>
+<!--        todo dokonczyc opinie-->
         <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
         <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
 

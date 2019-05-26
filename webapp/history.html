@@ -6,6 +6,7 @@
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/reservationsController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <title>History</title>
@@ -27,45 +28,50 @@
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="employee">
-        Historia wizyt :
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Data</th>
-                <th>Pracownik</th>
-                <th>Typ usługi</th>
-                <th>Ocena</th>
-                <th><p>########</p></th>
-            </tr>
-             <tr>
-                <th>Id}}</th>
-                <th>Produkty}}</th>
-                <th>Status}}</th>
-                <th>T yp}}</th>
-                <th> Cena}}</th>
-                 <th><a ng-href="login.html" class="myButton"> Ponów wizytę</a></th>
-            </tr>
-        </table>
-        Bonusy :
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Data</th>
-                <th>Rodzaj</th>
-                <th>###########</th>
-            </tr>
-             <tr>
-                <th>{{Id }}</th>
-                <th>{{Data }}</th>
-                <th>{{Rodza j}}</th>
-                 <th><a ng-href="login.html" class="myButton"> Aktywuj</a></th>
-            </tr>
-        </table>
+    <main class="employee" ng-controller="reservationsController as rez">
+        <div ng-if="rez.dataPresent == 1">
+            <center>
+                <h2> Historia twoich wizyt </h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nazwa usługi</th>
+                        <th>Ocena</th>
+                        <th>Zapłacono</th>
+                        <th>Produkty</th>
+                        <th>Pracownik</th>
+                        <th>Data</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="r in rez.history | limitTo: 3">
+                        <th>{{r.service.name}}</th>
+                        <th>
+                            <span ng-if="r.review.content.length > 1">{{r.review.content}}</span>
+                            <span ng-if="r.review == null"><a ng-click="rez.createReview(r)" class="myButton">Oceń !</a></span>
+                        </th>
+                        <th>{{r.service.price}}</th>
+                        <th>
+                            <table style="border: 0">
+                                <thead></thead>
+                                <tbody>
+                                    <tr ng-repeat="p in r.service.products">
+                                        <th>{{p.type.name}}</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </th>
+                        <th>{{r.workDate.employees[0].firstName + ' ' + r.workDate.employees[0].lastName}}</th>
+                        <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"> </span></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
     </main>
         <center>
             <div class="content">
-                <a ng-href="login.html" class="myButton">Powrót !</a>
+                <a ng-href="index.html" class="myButton">Powrót !</a>
             </div>
         </center>
 

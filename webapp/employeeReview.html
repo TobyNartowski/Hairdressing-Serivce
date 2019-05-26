@@ -11,7 +11,7 @@
     <script src="js/lib/angular-route/angular-route.js"></script>
     <title>Reviews</title>
 </head>
-<body>
+<body ng-controller="reviewsController as review">
 <header>
     <nav>
         <ol>
@@ -28,33 +28,36 @@
         <div style="clear: both"> </div>
     </nav>
 </header>
-<main class="employee" ng-controller="reviewsController as review">
-    <center ng-init="review.getEmployee()"><h3>Opinie o {{review.emp}}</h3></center>
-    <table>
-        <thead>
-        <tr>
-            <th>Usługa</th>
-            <th>Tytuł</th>
-            <th>Treść</th>
-            <th>Ocenił</th>
-            <th>Data</th>
-        </tr>
-        </thead>
-        <tbody>
-<!--        todo zmieic na nowy obiekt-->
-        <tr ng-repeat="r in review.reviews" >
-            <th>{{r.service.name}}</th>
-            <th>{{r.review.title}}</th>
-            <th>{{r.review.content}}</th>
-            <th>{{r.client.firstName + ' ' + r.client.lastName}}</th>
-            <th>{{r.workDate.date}}</th>
-        </tr>
-        </tbody>
-    </table>
+<main class="employee" ng-init="review.getEmployee()">
+    <center ng-if="review.dataPresent == 0"><h3>Ten pracownik nie ma jeszcze opini</h3></center>
+    <div ng-if="review.dataPresent == 1">
+        <center><h3>Opinie o {{review.employee[0].workDate.employees[0].firstName + ' ' + review.employee[0].workDate.employees[0].lastName}}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usługa</th>
+                        <th>Tytuł</th>
+                        <th>Treść</th>
+                        <th>Ocenił</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in review.employee" >
+                        <th>{{r.service.name}}</th>
+                        <th>{{r.review.title}}</th>
+                        <th>{{r.review.content}}</th>
+                        <th>{{r.client.firstName + ' ' + r.client.lastName}}</th>
+                        <th>{{r.workDate.date}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
 </main>
 <center>
     <div class="content">
-        <a ng-href="login.html" class="myButton">Powrót !</a>
+        <a href="index.html" class="myButton">Powrót !</a>
     </div>
 </center>
 

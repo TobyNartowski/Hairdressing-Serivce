@@ -63,20 +63,21 @@
                 <thead>
                 <tr>
                     <th>Nazwa usługi</th>
-                    <th>Czas trwania</th>
-                    <th>Cena</th>
+                    <th>Ocena</th>
+                    <th>Pracownik</th>
                     <th>Data</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="r in rez.reservations" >
+                <tr ng-repeat="r in rez.history | limitTo: 3">
                     <th>{{r.service.name}}</th>
-                    <th>{{r.service.duration}}</th>
-                    <th>{{r.service.price}}</th>
+                    <th>{{r.review.content}}</th>
+                    <th>{{r.workDate.employees[0].firstName + ' ' + r.workDate.employees[0].lastName}}</th>
                     <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"> </span></th>
                 </tr>
                 </tbody>
             </table>
+            <a href="history.html" class="myButton">Zobacz pełną historie</a>
         </center>
     </div>
     <div style="clear: both"></div>
