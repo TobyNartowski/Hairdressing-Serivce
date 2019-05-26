@@ -3,18 +3,17 @@ package pl.openthejar;
 import pl.openthejar.dao.ClientDao;
 import pl.openthejar.dao.EmployeeDao;
 import pl.openthejar.dao.EntityDao;
-import pl.openthejar.dao.ReservationDao;
 import pl.openthejar.model.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
-        ReservationDao reservationDao = new ReservationDao();
-        reservationDao.getDoneReservations();
-        //        loadDummyData();
-//        loadMoreDummyData();
+        loadDummyData();
+        loadMoreDummyData();
         System.exit(0);
     }
 

@@ -1,5 +1,6 @@
 package pl.openthejar.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.Type;
 

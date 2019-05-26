@@ -2,7 +2,8 @@ package pl.openthejar.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
