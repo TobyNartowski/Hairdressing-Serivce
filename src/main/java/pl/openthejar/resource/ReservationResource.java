@@ -1,7 +1,12 @@
 package pl.openthejar.resource;
 
+import pl.openthejar.dao.ClientDao;
+import pl.openthejar.dao.EntityDao;
 import pl.openthejar.dao.ReservationDao;
+import pl.openthejar.model.Client;
 import pl.openthejar.model.Reservation;
+import pl.openthejar.model.Service;
+import pl.openthejar.model.WorkDate;
 
 import javax.persistence.NoResultException;
 import javax.ws.rs.*;
@@ -39,8 +44,31 @@ public class ReservationResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Reservation save(Reservation reservation) {
-        return dao.save(reservation);
+    public Response save(@QueryParam("client_id") Long clientId,
+                            @QueryParam("service_id") Long serviceId,
+                            @QueryParam("workDate_id") Long workDateId) {
+        if (clientId == null || serviceId == null || workDateId == null) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
+        try {
+            ClientDao clientDao = new ClientDao();
+            EntityDao<Service> serviceDao = new EntityDao<>(Service.class);
+            EntityDao<WorkDate> workDateDao = new EntityDao<>(WorkDate.class);
+
+            Client client = clientDao.get(clientId);
+            Service service = serviceDao.get(serviceId);
+            WorkDate workDate = workDateDao.get(workDateId);
+
+            Reservation reservation = new Reservation();
+            reservation.setClient(client);
+            reservation.setService(service);
+            reservation.setWorkDate(workDate);
+
+            return Response.ok(dao.save(reservation), MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @PUT
