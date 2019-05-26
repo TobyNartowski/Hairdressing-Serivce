@@ -13,12 +13,13 @@ angular.module('mainApp').controller('servicesController', function servicesCont
         });
     }
 
-    object.makeReservation = function(name) {
+    object.makeReservation = function(name, service) {
         if($scope.getCookie('username').length > 1) {
 
             console.log(name);
             name = name.replace(/\W/g, '');
             $scope.setServiceCookie('service', name);
+            $scope.setServiceCookie('serviceId', service);
 
             $window.location.href = 'http://localhost:8080/serviceDate.html';
         } else {

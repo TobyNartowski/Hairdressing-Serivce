@@ -1,20 +1,4 @@
-
-zrobic polaczenia dla pracownikow (z indexu albo loginu) wyglad jak service choice + desc to samo dla usera
-
-/////
-index - rezerwacje oczekujace
-+ oceny do tych ktore nie wystawione
-
-post rezerwacji
-
-
-
-/////////////
-reviewsShowAll dodac tylko twoje opinie ??
-poprawic EMPLOYEE
-
 review - poprawic service - wyswietlanie napisow po spacji
-rezerwuj - click zapisac !
 
 
 

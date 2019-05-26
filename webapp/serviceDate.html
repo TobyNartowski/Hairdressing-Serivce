@@ -51,7 +51,7 @@
                                 <tbody>
                                 <tr ng-repeat="e in d.employees">
                                     <th style="font-weight: normal">{{e.firstName + ' ' + e.lastName}}</th>
-                                    <th><a ng-click="date.saveServiceInto(d.date, e.firstName, e.lastName)" class="myButton">Wybierz datę</a></th>
+                                    <th><a ng-click="date.saveServiceInto(d.date, e.firstName, e.lastName, d.id)" class="myButton">Wybierz datę</a></th>
                                 </tr>
                                 </tbody>
                             </table>

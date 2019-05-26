@@ -205,6 +205,12 @@ main .register span {
     bottom: 0;
 }
 
+.employeeLogin {
+    position: absolute;
+    bottom: 50%;
+    right: 5%;
+}
+
 /*REJESTRACJA*/
 main .registerPage {
     margin: auto;

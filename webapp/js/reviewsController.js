@@ -43,8 +43,10 @@ angular.module('mainApp').controller('reviewsController', function reviewsContro
     object.getEmployee = function () {
         object.emp = $scope.getCookie('emp');
 
+        if($scope.getCookie('emp').length < 1) {
+            object.emp = $scope.getCookie('id');
+        } else $scope.removeServiceCookie('emp');
         object.getEmployeeData();
-        $scope.removeServiceCookie('emp');
     }
 
 

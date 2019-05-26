@@ -13,24 +13,14 @@ angular.module('mainApp').controller('workdatesController', function workdatesCo
         });
     }
 
-    object.saveServiceInto = function(date, firstName, lastName) {
-        console.log(date + ' Pracownik :' + firstName + lastName);
+    object.saveServiceInto = function(date, firstName, lastName, workId) {
+        console.log(date + ' Pracownik :' + firstName + lastName + workId);
         $scope.setServiceCookie('date', date);
         $scope.setServiceCookie('employeeFirstName', firstName);
         $scope.setServiceCookie('employeeLastName', lastName);
+        $scope.setServiceCookie('workDateId', workId);
 
-        // $http({
-        //     method : 'POST',
-        //     url : 'api/reservations',
-        //     data: object.Reservation
-        // }).then(function success(response) {
-            $window.location.href = 'http://localhost:8080/serviceChange.html';
-        //
-        // }, function error(response) {
-        //     console.log(response);
-        // });
-
-
+        $window.location.href = 'http://localhost:8080/serviceChange.html';
     };
     refreshData();
 });
@@ -45,22 +35,33 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
         object.firstName = $scope.getCookie('firstName');
         object.lastName = $scope.getCookie('lastName');
         object.username = $scope.getCookie('username');
+        object.workDateId = $scope.getCookie('workDateId');
+        object.clientId = $scope.getCookie('id');
+        object.serviceId = $scope.getCookie('serviceId');
     };
     object.getComleteInfo();
 
     object.saveService = function () {
-        $scope.removeAllServiceCookies();
-        // $http({
-        //     method : 'PUT',
-        //     url : 'api/reservations/1?done=false',
-        //     // data:
-        // }).then(function success(response) {
-        //     $window.location.href = 'http://localhost:8080/serviceAccepted.html';
-        // }, function error(response) {
-        //     console.log(response);
-        // });
+        clearCookies();
+        $http({
+            method : 'POST',
+            url : 'api/reservations?client_id=' + object.clientId + '&service_id=' + object.serviceId + '&workDate_id=' + object.workDateId,
+            data: {}
+        }).then(function success(response) {
+            $window.location.href = 'http://localhost:8080/serviceAccepted.html';
+        }, function error(response) {
+            console.log(response);
+        });
     };
 
+    function clearCookies() {
+        $scope.removeServiceCookie('serviceId');
+        $scope.removeServiceCookie('service');
+        $scope.removeServiceCookie('date');
+        $scope.removeServiceCookie('employeeFirstName');
+        $scope.removeServiceCookie('employeeLastName');
+        $scope.removeServiceCookie('workDateId');
+    }
 
 
 });

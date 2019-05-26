@@ -68,7 +68,7 @@ angular.module('mainApp').controller('reservationsController', function reservat
     object.sendOpinion = function() {
         var review = {};
         review.title = object.review.title;
-        review.content = object.review.title;
+        review.content = object.review.content;
         review.date = Date.now();
         $http({
             method : 'POST',
