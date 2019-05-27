@@ -58,3 +58,58 @@ INSERT INTO `app`.`work_date_Employee` (`work_date_id`, `employees_id`) VALUES (
 INSERT INTO `app`.`work_date_Employee` (`work_date_id`, `employees_id`) VALUES (327687, 294924)
 INSERT INTO `app`.`work_date_Employee` (`work_date_id`, `employees_id`) VALUES (327688, 294924)
 INSERT INTO `app`.`work_date_Employee` (`work_date_id`, `employees_id`) VALUES (327689, 294924)
+
+
+private static void loadMoreDummyData() {
+        Client client = new ClientDao().findAll().get(0);
+        client.addDiscount(new Discount("Regular customer", 10));
+
+        Reservation reservation = new Reservation();
+        reservation.setClient(client);
+
+        Service service = new Service("Stylizacja", 30, 100);
+        service.setProducts(new ArrayList<>(Arrays.asList(
+                new Product(new EntityDao<>(ProductType.class).findAll().get(3), 31)
+        )));
+
+        reservation.setReview(new Review("Super", "Wszystko bardzo dobrze wykonane, swietna obsluga."));
+        reservation.setService(service);
+
+        WorkDate workDate = new WorkDate(new Date(System.currentTimeMillis()), new EmployeeDao().findAll().get(0));
+
+        reservation.setWorkDate(workDate);
+
+        EntityDao<Reservation> entityDao = new EntityDao<>(Reservation.class);
+        entityDao.saveOrUpdate(reservation);
+        entityDao.cleanUp();
+    }
+
+    private static void loadDummyData() {
+        Client client = new Client("John", "Doe", 123123123L);
+        client.setLogin("admin@wp.pl");
+        client.setHash("admin");
+        client.addDiscount(new Discount("Regular customer", 10));
+
+        Reservation reservation = new Reservation();
+        reservation.setClient(client);
+
+        Service service = new Service("Farbowanie", 30, 40);
+        service.setProducts(new ArrayList<>(Arrays.asList(
+                new Product(new ProductType("Szampon Matrix", 17), 32),
+                new Product(new ProductType("Szampon Loreal", 12), 12),
+                new Product(new ProductType("Odzywka Goldwell", 25), 41),
+                new Product(new ProductType("Serum Loreal", 23), 32)
+        )));
+
+//        reservation.setReview(new Review("Title", "Content"));
+        reservation.setService(service);
+
+        Employee employee = new Employee("employee1", "admin", "Ricardo", "Milos");
+        WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
+
+        reservation.setWorkDate(workDate);
+
+        EntityDao<Reservation> entityDao = new EntityDao<>(Reservation.class);
+        entityDao.save(reservation);
+        entityDao.cleanUp();
+    }

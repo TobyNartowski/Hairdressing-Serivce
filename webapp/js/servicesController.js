@@ -9,7 +9,7 @@ angular.module('mainApp').controller('servicesController', function servicesCont
             object.services = response.data;
             console.log(object.services);
         }, function error(response) {
-            console.log('API error ' + response.status);
+            console.log('API error ' + response.status + ' ' + response);
         });
     }
 

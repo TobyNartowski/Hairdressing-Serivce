@@ -12,8 +12,8 @@ import java.util.Date;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
-        loadDummyData();
-        loadMoreDummyData();
+//        loadDummyData();
+//        loadMoreDummyData();
         System.exit(0);
     }
 
@@ -24,13 +24,12 @@ public class HairdressingServiceApplication {
         Reservation reservation = new Reservation();
         reservation.setClient(client);
 
-        Service service = new Service("Second service", 600, 1000);
+        Service service = new Service("Stylizacja", 30, 100);
         service.setProducts(new ArrayList<>(Arrays.asList(
-                new Product(new EntityDao<>(ProductType.class).findAll().get(0), 3),
-                new Product(new EntityDao<>(ProductType.class).findAll().get(1), 2)
+                new Product(new EntityDao<>(ProductType.class).findAll().get(0), 31)
         )));
 
-        reservation.setReview(new Review("Title", "Content"));
+        reservation.setReview(new Review("Super", "Wszystko bardzo dobrze wykonane, swietna obsluga."));
         reservation.setService(service);
 
         WorkDate workDate = new WorkDate(new Date(System.currentTimeMillis()), new EmployeeDao().findAll().get(0));
@@ -43,28 +42,41 @@ public class HairdressingServiceApplication {
     }
 
     private static void loadDummyData() {
-        Client client = new Client("John", "Doe", 123123123L);
-        client.addDiscount(new Discount("Regular customer", 10));
-
+//        Client client = new Client("John", "Doe", 123123123L);
+//        client.setLogin("admin@wp.pl");
+//        client.setHash("admin");
+//        client.addDiscount(new Discount("Regular customer", 10));
+//
         Reservation reservation = new Reservation();
-        reservation.setClient(client);
+//        reservation.setClient(client);
+//
+//        Service service = new Service("Farbowanie", 30, 40);
+//        service.setProducts(new ArrayList<>(Arrays.asList(
+//                new Product(new ProductType("Szampon Matrix", 17), 32),
+//                new Product(new ProductType("Szampon Loreal", 12), 12),
+//                new Product(new ProductType("Odzywka Goldwell", 25), 41),
+//                new Product(new ProductType("Serum Loreal", 23), 32)
+//        )));
+//        Service service2 = new Service("Mezoterapia", 30, 120);
+//        service.setProducts(new ArrayList<>(Arrays.asList(
+//                new Product(new ProductType("Activ Aceton", 22), 15)
+//        )));
 
-        Service service = new Service("First service", 600, 1000);
-        service.setProducts(new ArrayList<>(Arrays.asList(
-                new Product(new ProductType("First product", 100), 3),
-                new Product(new ProductType("Second product", 130), 2)
-        )));
+//        reservation.setReview(new Review("Title", "Content"));
+//        reservation.setService(service);
+//        Reservation reservation2 = new Reservation();
+//        reservation2.setService(service2);
 
-        reservation.setReview(new Review("Title", "Content"));
-        reservation.setService(service);
-
-        Employee employee = new Employee("employee1", "0x1acf2137ff", "Ricardo", "Milos");
+        Employee employee = new Employee("employee2", "admin", "Antonio", "Milos");
         WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
+        WorkDate workDate2 = new WorkDate(new Date(1556055700L), employee);
 
         reservation.setWorkDate(workDate);
+//        reservation2.setWorkDate(workDate2);
 
         EntityDao<Reservation> entityDao = new EntityDao<>(Reservation.class);
         entityDao.save(reservation);
+//        entityDao.save(reservation2);
         entityDao.cleanUp();
     }
 }

@@ -8,7 +8,10 @@ angular.module('mainApp').controller('reservationsController', function reservat
             object.getData();
             object.getHistory();
         }
-        else object.dataPresent = 0;
+        else {
+            object.dataPresent = 0;
+            object.historyPresent = 0;
+        }
     };
 
     object.getData = function() {
@@ -18,12 +21,11 @@ angular.module('mainApp').controller('reservationsController', function reservat
                url: 'api/clients/' + object.id + '/reservations?done=false'
            }).then(function success(response) {
                object.reservations = response.data;
-               console.log(object.reservations);
 
                if(object.reservations[0] == null || object.reservations[0] == undefined) {
                    object.dataPresent = 0;
                } else {
-                   object.dataPresent = object.reservations[0].id > 1 ? 1 : 0;
+                   object.dataPresent = object.reservations[0].id >= 1 ? 1 : 0;
                }
            }, function error(response) {
                console.log('API error ' + response.status);
@@ -38,12 +40,11 @@ angular.module('mainApp').controller('reservationsController', function reservat
             url: 'api/clients/' + object.id + '/reservations?done=true'
         }).then(function success(response) {
             object.history = response.data;
-            console.log(object.history);
 
             if(object.history[0] == null || object.history[0] == undefined) {
                 object.historyPresent = 0;
             } else {
-                object.historyPresent = object.history[0].id > 1 ? 1 : 0;
+                object.historyPresent = object.history[0].id >= 1 ? 1 : 0;
             }
         }, function error(response) {
             console.log('API error ' + response.status);

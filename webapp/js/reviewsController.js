@@ -23,16 +23,22 @@ angular.module('mainApp').controller('reviewsController', function reviewsContro
         $http({
             method : 'GET',
             url : 'api/employees/' + object.emp + '/reservations?done=true'
+            // url : 'api/employees/8/reservations?done=true'
         }).then(function success(response) {
+            review = {content: 'Oczekujemy na ocene', title: 'Oczekujemy na ocene'};
+
+            for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i].review == null) {
+                    response.data[i].review = review;
+                }
+            }
             object.employee = response.data;
-            console.log(object.employee);
 
             if(object.employee[0] == null || object.employee[0] == undefined || object.employee.length == 0) {
                 object.dataPresent = 0;
             } else {
                 object.dataPresent = object.employee[0].id > 1 ? 1 : 0;
             }
-
         }, function error(response) {
             object.dataPresent = 0;
             console.log('API error ' + response.status);
@@ -45,7 +51,11 @@ angular.module('mainApp').controller('reviewsController', function reviewsContro
 
         if($scope.getCookie('emp').length < 1) {
             object.emp = $scope.getCookie('id');
-        } else $scope.removeServiceCookie('emp');
+        } else {
+            setTimeout(()=> {
+                $scope.removeServiceCookie('emp');
+            },5000);
+        }
         object.getEmployeeData();
     }
 

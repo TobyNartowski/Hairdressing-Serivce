@@ -12,8 +12,8 @@
     <title>Reviews</title>
 </head>
 <body ng-controller="reviewsController as review">
-<header>
-    <nav>
+<header ng-init="review.getEmployee()">
+    <nav ng-if="getCookie('emp').length < 1">
         <ol>
             <li><p><a href="indexEmployee.html">Super salon usługowy </a></p></li>
             <li><a class="employeeOptions" href="employeeProducts.html"><span class="optionsInfo">Stan magazynów</span></a></li>
@@ -24,8 +24,22 @@
 
         <div style="clear: both"> </div>
     </nav>
+    <nav ng-if="getCookie('emp').length >= 1">
+        <ol>
+            <li><p><a href="index.html">Super salon usługowy </a></p></li>
+            <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
+            <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
+            <li><div class="button"><a href="info.html">O NAS </a></div></li>
+            <li><div class="button"><a href="reviewShowAll.html">OPINIE
+            </a></div></li>
+        </ol>
+        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+
+        <div style="clear: both"> </div>
+    </nav>
 </header>
-<main class="employee" ng-init="review.getEmployee()">
+<main class="employee">
     <center ng-if="review.dataPresent == 0"><h3>Ten pracownik nie ma jeszcze opini</h3></center>
     <div ng-if="review.dataPresent == 1">
         <center><h3>Opinie o {{review.employee[0].workDate.employees[0].firstName + ' ' + review.employee[0].workDate.employees[0].lastName}}</h3>
@@ -40,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="r in review.employee" >
+                    <tr ng-repeat="r in review.employee | filter:{r:'!'} track by $index" >
                         <th>{{r.service.name}}</th>
                         <th>{{r.review.title}}</th>
                         <th>{{r.review.content}}</th>

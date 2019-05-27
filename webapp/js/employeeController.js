@@ -14,8 +14,10 @@ angular.module('mainApp').controller('employeeController', function employeeCont
     }
 
     object.saveEmployee = function(employee) {
-      $scope.setServiceCookie('emp', employee);
-        $window.location.href = 'http://localhost:8080/employeeReview.html';
+        $scope.setServiceCookie('emp', employee);
+        setTimeout(() => {
+            $window.location.href = 'http://localhost:8080/employeeReview.html';
+        }, 1000);
     };
 
     object.appName = 'Employees';
