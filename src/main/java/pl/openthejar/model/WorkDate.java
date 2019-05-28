@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -22,7 +22,7 @@ public class WorkDate extends BaseEntity implements Serializable {
 
     @Setter(AccessLevel.NONE)
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Employee> employees = new HashSet<>();
+    private Set<Employee> employees = new LinkedHashSet<>();
 
     public void addEmployee(Employee employee) {
         employees.add(employee);
@@ -31,5 +31,14 @@ public class WorkDate extends BaseEntity implements Serializable {
     public WorkDate(Date date, Employee employee) {
         this.date = date;
         addEmployee(employee);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof WorkDate) {
+            WorkDate objWorkDate = (WorkDate) obj;
+            return this.getId().equals(objWorkDate.getId());
+        }
+        return false;
     }
 }

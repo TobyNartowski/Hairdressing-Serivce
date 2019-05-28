@@ -1,12 +1,7 @@
 package pl.openthejar.resource;
 
-import pl.openthejar.dao.ClientDao;
-import pl.openthejar.dao.EntityDao;
-import pl.openthejar.dao.ReservationDao;
-import pl.openthejar.model.Client;
-import pl.openthejar.model.Reservation;
-import pl.openthejar.model.Service;
-import pl.openthejar.model.WorkDate;
+import pl.openthejar.dao.*;
+import pl.openthejar.model.*;
 
 import javax.persistence.NoResultException;
 import javax.ws.rs.*;
@@ -17,6 +12,8 @@ import javax.ws.rs.core.Response;
 public class ReservationResource {
 
     private ReservationDao dao = new ReservationDao();
+    private EntityDao<WorkDate> workDateDao = new EntityDao<>(WorkDate.class);
+    private EmployeeDao employeeDao = new EmployeeDao();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -71,19 +68,63 @@ public class ReservationResource {
         }
     }
 
+//    @PUT
+//    @Path("/{id}")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response done(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
+//        try {
+//            Reservation reservation = dao.get(id);
+//
+//            if (done == null) {
+//                return Response.status(Response.Status.BAD_REQUEST).build();
+//            } else {
+//                return Response.ok(dao.changeStatus(reservation, done), MediaType.APPLICATION_JSON_TYPE).build();
+//            }
+//        } catch (NoResultException e) {
+//            return Response.status(Response.Status.NOT_FOUND).build();
+//        }
+//    }
+
     @PUT
     @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response done(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
+    public Response changeTime(@PathParam("id") Long id,
+                               @QueryParam("date") Long dateId,
+                               @QueryParam("employee") Long employeeId) {
+        if (dateId == null && employeeId == null) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
         try {
             Reservation reservation = dao.get(id);
 
-            if (done == null) {
-                return Response.status(Response.Status.BAD_REQUEST).build();
-            } else {
-                return Response.ok(dao.changeStatus(reservation, done), MediaType.APPLICATION_JSON_TYPE).build();
+            if (reservation.getWorkDate() != null) {
+                Employee oldEmployee = reservation.getWorkDate().getEmployees().iterator().next();
+                Employee employee;
+                if (employeeId != null) {
+                    employee = employeeDao.get(employeeId);
+                } else {
+                    employee = oldEmployee;
+                }
+                reservation.getWorkDate().getEmployees().remove(oldEmployee);
+                workDateDao.saveOrUpdate(reservation.getWorkDate());
+
+                WorkDate workDate;
+                if (dateId != null) {
+                    workDate = workDateDao.get(dateId);
+                } else {
+                    workDate = reservation.getWorkDate();
+                }
+                workDate.getEmployees().add(employee);
+                workDateDao.saveOrUpdate(workDate);
+
+                reservation.setWorkDate(workDate);
+                dao.saveOrUpdate(reservation);
+                return Response.ok(reservation, MediaType.APPLICATION_JSON_TYPE).build();
             }
+
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
         } catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
