@@ -68,65 +68,58 @@ public class ReservationResource {
         }
     }
 
-//    @PUT
-//    @Path("/{id}")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response done(@PathParam("id") Long id, @QueryParam("done") Boolean done) {
-//        try {
-//            Reservation reservation = dao.get(id);
-//
-//            if (done == null) {
-//                return Response.status(Response.Status.BAD_REQUEST).build();
-//            } else {
-//                return Response.ok(dao.changeStatus(reservation, done), MediaType.APPLICATION_JSON_TYPE).build();
-//            }
-//        } catch (NoResultException e) {
-//            return Response.status(Response.Status.NOT_FOUND).build();
-//        }
-//    }
-
     @PUT
     @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response changeTime(@PathParam("id") Long id,
-                               @QueryParam("date") Long dateId,
-                               @QueryParam("employee") Long employeeId) {
-        if (dateId == null && employeeId == null) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-
-        try {
-            Reservation reservation = dao.get(id);
-
-            if (reservation.getWorkDate() != null) {
-                Employee oldEmployee = reservation.getWorkDate().getEmployees().iterator().next();
-                Employee employee;
-                if (employeeId != null) {
-                    employee = employeeDao.get(employeeId);
-                } else {
-                    employee = oldEmployee;
-                }
-                reservation.getWorkDate().getEmployees().remove(oldEmployee);
-                workDateDao.saveOrUpdate(reservation.getWorkDate());
-
-                WorkDate workDate;
-                if (dateId != null) {
-                    workDate = workDateDao.get(dateId);
-                } else {
-                    workDate = reservation.getWorkDate();
-                }
-                workDate.getEmployees().add(employee);
-                workDateDao.saveOrUpdate(workDate);
-
-                reservation.setWorkDate(workDate);
-                dao.saveOrUpdate(reservation);
-                return Response.ok(reservation, MediaType.APPLICATION_JSON_TYPE).build();
+    public Response done(@PathParam("id") Long id,
+                         @QueryParam("done") Boolean done,
+                         @QueryParam("date") Long dateId,
+                         @QueryParam("employee") Long employeeId) {
+        if (done != null) {
+            try {
+                Reservation reservation = dao.get(id);
+                return Response.ok(dao.changeStatus(reservation, done), MediaType.APPLICATION_JSON_TYPE).build();
+            } catch (NoResultException e) {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+        } else {
+            if (dateId == null && employeeId == null) {
+                return Response.status(Response.Status.BAD_REQUEST).build();
             }
 
-            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
-        } catch (NoResultException e) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            try {
+                Reservation reservation = dao.get(id);
+
+                if (reservation.getWorkDate() != null) {
+                    Employee oldEmployee = reservation.getWorkDate().getEmployees().iterator().next();
+                    Employee employee;
+                    if (employeeId != null) {
+                        employee = employeeDao.get(employeeId);
+                    } else {
+                        employee = oldEmployee;
+                    }
+                    reservation.getWorkDate().getEmployees().remove(oldEmployee);
+                    workDateDao.saveOrUpdate(reservation.getWorkDate());
+
+                    WorkDate workDate;
+                    if (dateId != null) {
+                        workDate = workDateDao.get(dateId);
+                    } else {
+                        workDate = reservation.getWorkDate();
+                    }
+                    workDate.getEmployees().add(employee);
+                    workDateDao.saveOrUpdate(workDate);
+
+                    reservation.setWorkDate(workDate);
+                    dao.saveOrUpdate(reservation);
+                    return Response.ok(reservation, MediaType.APPLICATION_JSON_TYPE).build();
+                }
+
+                return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+            } catch (NoResultException e) {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
         }
     }
 }
