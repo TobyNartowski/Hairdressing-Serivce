@@ -3,19 +3,28 @@ package pl.openthejar;
 import pl.openthejar.dao.ClientDao;
 import pl.openthejar.dao.EmployeeDao;
 import pl.openthejar.dao.EntityDao;
-import pl.openthejar.dao.WorkDateDao;
+import pl.openthejar.misc.DatabaseService;
 import pl.openthejar.model.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
+//        System.out.println(System.currentTimeMillis());
 //        loadDummyData();
 //        loadMoreDummyData();
-        System.exit(0);
+//        loadWorkDatesForNextDay();
+    }
+
+    private static void loadWorkDatesForNextDay() {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(DatabaseService.getAdder());
+        executor.shutdown();
     }
 
     private static void loadMoreDummyData() {
@@ -25,7 +34,7 @@ public class HairdressingServiceApplication {
         Reservation reservation = new Reservation();
         reservation.setClient(client);
 
-        Service service = new Service("Stylizacja", 30, 100);
+        Service service = new Service("Stylizacja2", 30, 100);
         service.setProducts(new ArrayList<>(Arrays.asList(
                 new Product(new EntityDao<>(ProductType.class).findAll().get(0), 31)
         )));

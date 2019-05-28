@@ -10,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "work_date")
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Setter @Getter
 public class WorkDate extends BaseEntity implements Serializable {
