@@ -1,6 +1,7 @@
 package pl.openthejar.resource;
 
 import pl.openthejar.dao.EntityDao;
+import pl.openthejar.model.Product;
 import pl.openthejar.model.ProductType;
 
 import javax.ws.rs.*;
@@ -11,6 +12,7 @@ import java.util.List;
 public class ProductTypeResource {
 
     private EntityDao<ProductType> dao = new EntityDao<>(ProductType.class);
+    private EntityDao<Product> productDao = new EntityDao<>(Product.class);
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -21,7 +23,12 @@ public class ProductTypeResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ProductType save(ProductType productType) {
-        return dao.save(productType);
+    public ProductType save(ProductType productType, @QueryParam("add") Integer add) {
+        dao.save(productType);
+        if (add != null) {
+            productDao.saveOrUpdate(new Product(productType, add));
+        }
+
+        return productType;
     }
 }
