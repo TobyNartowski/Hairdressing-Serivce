@@ -2,14 +2,13 @@ angular.module('mainApp').controller('employeeController', function employeeCont
     var object = this;
 
     function refreshData() {
-        $http({
-            method : 'GET',
-            url : 'api/employees'
-        }).then(function success(response) {
+        $http.get('api/employees').then(function (response) {
+            for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i].firstName === 'ADMIN' && response.data[i].lastName === 'ADMIN') {
+                    response.data[i] = null;
+                }
+            }
             object.employees = response.data;
-            console.log(object.employees);
-        }, function error(response) {
-            console.log('API error ' + response.status);
         });
     }
 

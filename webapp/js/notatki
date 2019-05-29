@@ -1,3 +1,18 @@
+dodac do uslugi mozliwosc dodania produktow //xd
+routing
+??????
+ograniczyc tabele w choice
+
+
+
+
+
+
+
+
+
+
+
 INSERT INTO `app`.`Employee` (`id`, `firstName`, `hash`, `lastName`, `login`) VALUES (294924, 'Filip', 'admin', 'Nowak', 'employee2');
 INSERT INTO `app`.`Employee` (`id`, `firstName`, `hash`, `lastName`, `login`) VALUES (294925, 'Kamil', 'admin', 'Wisniewski', 'employee4');
 INSERT INTO `app`.`Employee` (`id`, `firstName`, `hash`, `lastName`, `login`) VALUES (294926, 'Klaudia', 'admin', 'Wozniak', 'employee5');

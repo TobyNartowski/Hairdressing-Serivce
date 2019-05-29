@@ -1,18 +1,11 @@
 angular.module('mainApp').controller('productController', function productController($http) {
-    var vm = this;
+    var object = this;
 
     function refreshData() {
-        $http({
-            method : 'GET',
-            url : 'api/products'
-        }).then(function success(response) {
-            vm.products = response.data;
-            console.log(vm.products);
-        }, function error(response) {
-            console.log('API error ' + response.status);
+        $http.get('api/products').then(function (response) {
+            object.products = response.data;
         });
     }
 
-    vm.appName = 'Products';
     refreshData();
 });

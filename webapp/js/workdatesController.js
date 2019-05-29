@@ -2,14 +2,8 @@ angular.module('mainApp').controller('workdatesController', function workdatesCo
     var object = this;
 
     function refreshData() {
-        $http({
-            method : 'GET',
-            url : 'api/work-dates'
-        }).then(function success(response) {
+        $http.get('api/work-dates').then(function (reponse) {
             object.dates = response.data;
-            console.log(object.dates);
-        }, function error(response) {
-            console.log('API error ' + response.status);
         });
     }
 
@@ -43,14 +37,11 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
 
     object.saveService = function () {
         clearCookies();
-        $http({
-            method : 'POST',
-            url : 'api/reservations?client_id=' + object.clientId + '&service_id=' + object.serviceId + '&workDate_id=' + object.workDateId,
-            data: {}
-        }).then(function success(response) {
+
+        $http.post('api/reservations?client_id=' + object.clientId + '&service_id=' + object.serviceId +
+            '&workDate_id=' + object.workDateId,
+            {}).then(function () {
             $window.location.href = 'http://localhost:8080/serviceAccepted.html';
-        }, function error(response) {
-            console.log(response);
         });
     };
 
@@ -78,6 +69,4 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
         $scope.removeServiceCookie('employeeLastName');
         $scope.removeServiceCookie('workDateId');
     }
-
-
 });

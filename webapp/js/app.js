@@ -4,7 +4,7 @@ angular.module("mainApp").requires.push('ngCookies');
 
 app.controller('loginCtrl', loginCtrl);
 
-app.run(function ($rootScope, $cookies) {
+app.run(function ($rootScope, $cookies, $http) {
     $rootScope.setCookie = function (username, firstName, lastName) {
         $cookies.put('username', username);
         $cookies.put('firstName', firstName);
@@ -35,16 +35,6 @@ app.run(function ($rootScope, $cookies) {
     };
     $rootScope.removeServiceCookie = function (key) {
         $cookies.remove(key);
-    }
+    };
 });
-
-app.filter('getUser', ['decoration', function(decoration) {
-
-    function decorateFilter(input) {
-        return decoration.symbol + input + decoration.symbol;
-    }
-    decorateFilter.$stateful = true;
-
-    return decorateFilter;
-}]);
 

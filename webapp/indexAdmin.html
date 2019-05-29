@@ -12,13 +12,13 @@
     <title>Home</title>
 </head>
 <body ng-controller="adminController as admin">
-<header>
+<header ng-init="admin.getData();">
     <nav>
         <ol>
-            <li><p><a href="indexEmployee.html">Super salon usługowy </a></p></li>
+            <li><p><a href="indexAdmin.html">Super salon usługowy </a></p></li>
         </ol>
-        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
-        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="30px"></div></a>
+        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="16px"></div></a>
 
         <div style="clear: both"> </div>
     </nav>
@@ -26,50 +26,109 @@
 <main>
     <div class="userReservations" style="width: 100%">
         <center>
-            <div class="adminPane">
-                <h3>Pracownicy</h3>
+            <div class="adminBlock">
+                <div class="adminPane">
+                    <h3>Pracownicy</h3>
                     <table>
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Pracownik</th>
                             <th>Login</th>
+                            <th>Usuń</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="e in admin.employee | filter:{r:'!'} track by $index" >
+                        <tr ng-repeat="e in admin.employee | filter:{e:'!'} track by $index" >
                             <th>{{e.id}}</th>
                             <th>{{e.firstName + ' ' + e.lastName}}</th>
                             <th>{{e.login}}</th>
+                            <th class="adminLink" ng-click="admin.open('eid', e.id, 'Employee')"><img src="/img/clear-button.png"></th>
                         </tr>
                         </tbody>
                     </table>
-            </div>
-            <div class="adminPane">
-                <h3>Usługi</h3>
+                    <a href="addEmployee.html" class="myButton">Dodaj Pracownika</a>
+                </div>
+                <div class="adminPane">
+                    <h3>Usługi</h3>
                     <table>
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Pracownik</th>
-                            <th>Login</th>
+                            <th>Nazwa</th>
+                            <th>Czas</th>
+                            <th>Cena</th>
+                            <th>Modyfikuj</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="e in admin.employee | filter:{r:'!'} track by $index" >
-                            <th>{{e.id}}</th>
-                            <th>{{e.firstName + ' ' + e.lastName}}</th>
-                            <th>{{e.login}}</th>
+                        <tr ng-repeat="s in admin.service | filter:{s:'!'} track by $index" >
+                            <th>{{s.id}}</th>
+                            <th>{{s.name}}</th>
+                            <th>{{s.duration}}</th>
+                            <th>{{s.price}}</th>
+                            <th class="adminLink" ng-click="admin.open('sid', s.id, 'Service')"><img src="/img/configuration.png"></th>
                         </tr>
                         </tbody>
                     </table>
+                    <a href="modifyService.html" class="myButton">Dodaj Usługę</a>
+                </div>
+                <div style="clear: both"></div>
             </div>
-            <div class="adminPane">
-                <h3>Pracownicy</h3>
-
+            <div class="adminBlock">
+                <div class="adminPane">
+                    <h3>Opinie</h3>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tytuł</th>
+                            <th>Treść</th>
+                            <th>Data</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="r in admin.review | filter:{r:'!'} track by $index" >
+                            <th>{{r.id}}</th>
+                            <th>{{r.title}}</th>
+                            <th>{{r.content}}</th>
+                            <th><span ng-bind="r.date | date:'hh:mm'"> </span></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="adminPane">
+                    <h3>Produkty</h3>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nazwa</th>
+                            <th>Cena</th>
+                            <th>Ilość w magazynie</th>
+                            <th>Modyfikuj</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="p in admin.product | filter:{p:'!'} track by $index" >
+                            <th>{{p.type.id}}</th>
+                            <th>{{p.type.name}}</th>
+                            <th>{{p.type.price}}</th>
+                            <th>{{p.quantity}}</th>
+                            <th class="adminLink" ng-click="admin.open('pid', p.id, 'Product')"><img src="/img/configuration.png"></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a href="modifyProduct.html" class="myButton">Dodaj Produkt</a>
+                </div>
+                <div style="clear: both"></div>
             </div>
         </center>
     </div>
 </main>
+<footer class="loginFooter"><br/>
+    <p>Super salon usługowy</p>
+    <div class="flaticon">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</footer>
 </body>
 </html>

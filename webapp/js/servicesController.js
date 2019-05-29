@@ -2,14 +2,8 @@ angular.module('mainApp').controller('servicesController', function servicesCont
     var object = this;
 
     function refreshData() {
-        $http({
-            method : 'GET',
-            url : 'api/services'
-        }).then(function success(response) {
+        $http.get('api/services').then(function (response) {
             object.services = response.data;
-            console.log(object.services);
-        }, function error(response) {
-            console.log('API error ' + response.status + ' ' + response);
         });
     }
 

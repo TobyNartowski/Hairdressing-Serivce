@@ -71,14 +71,10 @@ angular.module('mainApp').controller('reservationsController', function reservat
         review.title = object.review.title;
         review.content = object.review.content;
         review.date = Date.now();
-        $http({
-            method : 'POST',
-            url : 'api/reviews?reservation=' + object.reservationID,
-            data: review
-        }).then(function success(response) {
+
+
+        $http.post('api/reviews?reservation=' + object.reservationID, review).then(function () {
             $window.location.href = 'http://localhost:8080/index.html';
-        }, function error(response) {
-            console.log(response);
         });
     };
 

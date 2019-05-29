@@ -3,25 +3,13 @@ function loginCtrl($scope, $window, $timeout, $http) {
     var object = this;
 
     this.getData = function () {
-        $http({
-            method : 'GET',
-            url : 'api/clients'
-        }).then(function success(response) {
+        $http.get('api/clients').then(function (response) {
             object.people = response.data;
-            console.log(object.people);
-        }, function error(response) {
-            console.log('API error ' + response.status);
         });
     };
     this.getEmployeeData = function () {
-        $http({
-            method : 'GET',
-            url : 'api/employees'
-        }).then(function success(response) {
+        $http.get('api/employees').then(function (response) {
             object.employee = response.data;
-
-        }, function error(response) {
-            console.log('API error ' + response.status);
         });
     };
 
