@@ -27,11 +27,11 @@ public class HairdressingServiceApplication {
     }
 
     private static void loadMoreDummyData() {
-        Client client = new ClientDao().findAll().get(0);
-        client.addDiscount(new Discount("Regular customer", 10));
+//        Client client = new ClientDao().findAll().get(0);
+//        client.addDiscount(new Discount("Regular customer", 10));
 
         Reservation reservation = new Reservation();
-        reservation.setClient(client);
+//        reservation.setClient(client);
 
         Service service = new Service("Stylizacja2", 30, 100, 2);
         service.setProducts(new ArrayList<>(Arrays.asList(
@@ -56,9 +56,12 @@ public class HairdressingServiceApplication {
         client.setHash("admin");
         client.addDiscount(new Discount("Regular customer", 10));
 
+        ClientDao clientDao = new ClientDao();
+        clientDao.save(client);
+//
         Reservation reservation = new Reservation();
-        reservation.setClient(client);
-
+//        reservation.setClient(client);
+//
         Service service = new Service("Farbowanie", 30, 40, 2);
         service.setProducts(new ArrayList<>(Arrays.asList(
                 new Product(new ProductType("Szampon Matrix", 17), 32),
@@ -66,6 +69,7 @@ public class HairdressingServiceApplication {
                 new Product(new ProductType("Odzywka Goldwell", 25), 41),
                 new Product(new ProductType("Serum Loreal", 23), 32)
         )));
+
         Service service2 = new Service("Mezoterapia", 30, 120, 2);
         service.setProducts(new ArrayList<>(Arrays.asList(
                 new Product(new ProductType("Activ Aceton", 22), 15)
@@ -76,16 +80,16 @@ public class HairdressingServiceApplication {
         Reservation reservation2 = new Reservation();
         reservation2.setService(service2);
 
-        Employee employee = new Employee("employee2", "admin", "Antonio", "Milos");
-        WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
-        WorkDate workDate2 = new WorkDate(new Date(1556055700L), employee);
-
-        reservation.setWorkDate(workDate);
-//        reservation2.setWorkDate(workDate2);
-
+//        Employee employee = new Employee("employee1", "admin", "Ricardo", "Milos");
+//        WorkDate workDate = new WorkDate(new Date(1556015700L), employee);
+//        WorkDate workDate2 = new WorkDate(new Date(1556055700L), employee);
+//
+//        reservation.setWorkDate(workDate);
+////        reservation2.setWorkDate(workDate2);
+//
         EntityDao<Reservation> entityDao = new EntityDao<>(Reservation.class);
         entityDao.save(reservation);
-//        entityDao.save(reservation2);
+        entityDao.save(reservation2);
         entityDao.cleanUp();
     }
 }

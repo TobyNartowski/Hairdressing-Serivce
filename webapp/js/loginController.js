@@ -19,7 +19,7 @@ function loginCtrl($scope, $window, $timeout, $http) {
             url : 'api/employees'
         }).then(function success(response) {
             object.employee = response.data;
-            console.log(object.employee);
+
         }, function error(response) {
             console.log('API error ' + response.status);
         });
@@ -63,7 +63,12 @@ function loginCtrl($scope, $window, $timeout, $http) {
         }
 
         if(object.found != null) {
-            $window.location.href = 'http://localhost:8080/indexEmployee.html';
+            //todo DODAC KOLUMNE W TABELI EMPLOYEE LUB NOWA TABELE
+            if(object.found.login == 'admin' && object.found.hash == 'admin') {
+                $window.location.href = 'http://localhost:8080/indexAdmin.html';
+            } else {
+                $window.location.href = 'http://localhost:8080/indexEmployee.html';
+            }
             $scope.setCookie(this.username, object.found.firstName, object.found.lastName);
             $scope.setServiceCookie('id', object.found.id);
 

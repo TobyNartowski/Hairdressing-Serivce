@@ -44,6 +44,7 @@
                     <th>Czas trwania</th>
                     <th>Cena</th>
                     <th>Data</th>
+                    <th>Modyfikuj</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,7 +52,8 @@
                     <th>{{r.service.name}}</th>
                     <th>{{r.service.duration}}</th>
                     <th>{{r.service.price}}</th>
-                    <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"> </span></th>
+                    <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"></span></th>
+                    <th><a ng-click="rez.setService(r)">Modyfikuj</a></th>
                 </tr>
                 </tbody>
             </table>

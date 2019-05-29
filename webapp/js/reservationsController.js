@@ -93,6 +93,17 @@ angular.module('mainApp').controller('reservationsController', function reservat
         }
     };
 
+    object.setService = function(reservation) {
+        $scope.setServiceCookie('serviceName', reservation.service.name);
+        $scope.setServiceCookie('serviceDate', reservation.workDate.date);
+        $scope.setServiceCookie('serviceEmployeeF', reservation.workDate.employees[0].firstName);
+        $scope.setServiceCookie('serviceEmployeeL', reservation.workDate.employees[0].lastName);
+
+        setTimeout(() =>{
+            $window.location.href = 'http://localhost:8080/modifyReservation.html';
+        }, 1000);
+    };
+
     getId();
 
     function setReviewCookies(reservation) {

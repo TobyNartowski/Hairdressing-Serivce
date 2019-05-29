@@ -54,6 +54,22 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
         });
     };
 
+    object.removeService = function(page) {
+        $scope.removeServiceCookie('serviceName');
+        $scope.removeServiceCookie('serviceDate');
+        $scope.removeServiceCookie('serviceEmployeeF');
+        $scope.removeServiceCookie('serviceEmployeeL');
+
+        $window.location.href = 'http://localhost:8080/' + page +'.html';
+    };
+
+    object.logout = function () {
+        $scope.removeCookies();
+        setTimeout(()=>{
+            object.removeService('index');
+        }, 500);
+    };
+
     function clearCookies() {
         $scope.removeServiceCookie('serviceId');
         $scope.removeServiceCookie('service');
