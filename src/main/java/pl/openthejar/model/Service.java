@@ -27,6 +27,10 @@ public class Service extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private Integer price;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @NonNull
+    @Column(nullable = false)
+    private Integer need;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Product> products = new ArrayList<>();
 }

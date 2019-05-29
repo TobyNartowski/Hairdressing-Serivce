@@ -13,7 +13,7 @@ public class Product extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Setter(AccessLevel.NONE)
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
     private ProductType type;
 
     @Column(nullable = false)
