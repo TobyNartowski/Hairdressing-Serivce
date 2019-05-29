@@ -44,4 +44,12 @@ public class EntityDao<T extends BaseEntity> extends DatabaseProxy {
         TypedQuery<T> findAllQuery = entityManager.createQuery(query, type);
         return findAllQuery.getResultList();
     }
+
+    public void remove(Long id) {
+        EntityTransaction tx = entityManager.getTransaction();
+        T object = entityManager.find(type, id);
+        tx.begin();
+        entityManager.remove(object);
+        tx.commit();
+    }
 }
