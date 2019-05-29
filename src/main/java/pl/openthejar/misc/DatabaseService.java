@@ -1,6 +1,8 @@
 package pl.openthejar.misc;
 
 import pl.openthejar.dao.EntityDao;
+import pl.openthejar.model.Product;
+import pl.openthejar.model.ProductType;
 import pl.openthejar.model.Reservation;
 import pl.openthejar.model.WorkDate;
 
@@ -10,21 +12,28 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class DatabaseService {
 
     private ZonedDateTime currentDate = ZonedDateTime.now(ZoneId.of("Europe/Warsaw")).plusHours(2);
     private ZonedDateTime nextStartDate = currentDate.withHour(0).withMinute(0).withSecond(0);
 
-    private static class AddWorkDates implements Runnable {
+    private static class DailyChecker implements Runnable {
 
         private static final int SECONDS_IN_DAY = 86400;
         private static final int SECONDS_IN_15_MINUTES = 900;
 
-        private EntityDao<WorkDate> dao = new EntityDao<>(WorkDate.class);
+        private static final int PRODUCT_QUANTITY = 10;
+
+        private EntityDao<WorkDate> workDateDao = new EntityDao<>(WorkDate.class);
+        private EntityDao<Product> productDao = new EntityDao<>(Product.class);
+        private EntityDao<ProductType> productTypeDao = new EntityDao<>(ProductType.class);
 
         @Override
         public void run() {
@@ -41,9 +50,23 @@ public class DatabaseService {
 
             for (int i = 0; i < 32; i++) {
                 WorkDate workDate = new WorkDate(new Date(unixTime * 1000L));
-                dao.saveOrUpdate(workDate);
+                workDateDao.saveOrUpdate(workDate);
                 unixTime += SECONDS_IN_15_MINUTES;
             }
+
+            List<Product> products = productDao.findAll();
+
+            productTypeDao.findAll().forEach(productType -> {
+                Optional<Product> find = products.stream().filter(p -> p.getType().equals(productType)).findAny();
+                if (find.isPresent()) {
+                    Product product = find.get();
+                    product.setQuantity(product.getQuantity() + PRODUCT_QUANTITY);
+                    productDao.saveOrUpdate(product);
+                } else {
+                    Product product = new Product(productType, PRODUCT_QUANTITY);
+                    productDao.save(product);
+                }
+            });
         }
     }
 
@@ -83,11 +106,11 @@ public class DatabaseService {
         Duration secondDuration = Duration.between(currentDate, nextStartDate);
         delay = secondDuration.getSeconds();
         ScheduledExecutorService workDatesScheduler = Executors.newScheduledThreadPool(1);
-        workDatesScheduler.scheduleAtFixedRate(new AddWorkDates(), delay,  TimeUnit.HOURS.toSeconds(1), TimeUnit.SECONDS);
+        workDatesScheduler.scheduleAtFixedRate(new DailyChecker(), delay,  TimeUnit.HOURS.toSeconds(1), TimeUnit.SECONDS);
     }
 
-    public static AddWorkDates getAdder() {
-        return new AddWorkDates();
+    public static DailyChecker getDailyChecker() {
+        return new DailyChecker();
     }
 
     public static ReservationsChecker getReservationsChecker() {

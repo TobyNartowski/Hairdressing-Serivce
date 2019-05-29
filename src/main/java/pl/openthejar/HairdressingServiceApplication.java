@@ -17,14 +17,13 @@ public class HairdressingServiceApplication {
     public static void main(String[] args) {
 //        loadDummyData();
 //        loadMoreDummyData();
-//        loadWorkDatesForNextDay();
-        checkReservations();
+//        loadNextDay();
 //        new DatabaseService();
     }
 
-    private static void loadWorkDatesForNextDay() {
+    private static void loadNextDay() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.submit(DatabaseService.getAdder());
+        executor.submit(DatabaseService.getDailyChecker());
         executor.shutdown();
     }
 
