@@ -1,9 +1,11 @@
 package pl.openthejar.misc;
 
 import pl.openthejar.dao.EntityDao;
+import pl.openthejar.model.Reservation;
 import pl.openthejar.model.WorkDate;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Calendar;
@@ -14,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DatabaseService {
 
-    private ZonedDateTime currentDate = ZonedDateTime.now(ZoneId.of("Europe/Warsaw"));
+    private ZonedDateTime currentDate = ZonedDateTime.now(ZoneId.of("Europe/Warsaw")).plusHours(2);
     private ZonedDateTime nextStartDate = currentDate.withHour(0).withMinute(0).withSecond(0);
 
     private static class AddWorkDates implements Runnable {
@@ -45,19 +47,50 @@ public class DatabaseService {
         }
     }
 
+    private static class ReservationsChecker implements Runnable {
+
+        private EntityDao<Reservation> dao = new EntityDao<>(Reservation.class);
+        private static final int SECONDS_IN_15_MINUTES = 900;
+
+        @Override
+        public void run() {
+            dao.findAll().forEach(r -> {
+                if (r.getWorkDate() != null && r.getWorkDate().getDate().before(new Date(System.currentTimeMillis() - SECONDS_IN_15_MINUTES))) {
+                    r.setDone(true);
+                    dao.saveOrUpdate(r);
+                }
+            });
+        }
+    }
+
     public DatabaseService() {
         if (currentDate.compareTo(nextStartDate) > 0) {
             nextStartDate = nextStartDate.plusDays(1);
         }
 
-        Duration duration = Duration.between(currentDate, nextStartDate);
-        long delay = duration.getSeconds();
+        long findTime = currentDate.toEpochSecond();
+        while (findTime % 900 != 0) {
+            findTime++;
+        }
 
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        scheduler.scheduleAtFixedRate(new AddWorkDates(), delay,  TimeUnit.DAYS.toSeconds(1), TimeUnit.SECONDS);
+        Duration duration = Duration.between(currentDate,
+                ZonedDateTime.ofInstant(Instant.ofEpochSecond(findTime), ZoneId.of("Europe/Warsaw")));
+        long delay = duration.getSeconds();
+        delay += 5;
+        ScheduledExecutorService reservationScheduler = Executors.newScheduledThreadPool(1);
+        reservationScheduler.scheduleAtFixedRate(new ReservationsChecker(), delay,  TimeUnit.MINUTES.toSeconds(15), TimeUnit.SECONDS);
+
+        Duration secondDuration = Duration.between(currentDate, nextStartDate);
+        delay = secondDuration.getSeconds();
+        ScheduledExecutorService workDatesScheduler = Executors.newScheduledThreadPool(1);
+        workDatesScheduler.scheduleAtFixedRate(new AddWorkDates(), delay,  TimeUnit.HOURS.toSeconds(1), TimeUnit.SECONDS);
     }
 
     public static AddWorkDates getAdder() {
         return new AddWorkDates();
+    }
+
+    public static ReservationsChecker getReservationsChecker() {
+        return new ReservationsChecker();
     }
 }

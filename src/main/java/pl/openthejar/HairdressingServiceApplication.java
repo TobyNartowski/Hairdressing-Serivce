@@ -18,11 +18,19 @@ public class HairdressingServiceApplication {
 //        loadDummyData();
 //        loadMoreDummyData();
 //        loadWorkDatesForNextDay();
+        checkReservations();
+//        new DatabaseService();
     }
 
     private static void loadWorkDatesForNextDay() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(DatabaseService.getAdder());
+        executor.shutdown();
+    }
+
+    private static void checkReservations() {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(DatabaseService.getReservationsChecker());
         executor.shutdown();
     }
 
