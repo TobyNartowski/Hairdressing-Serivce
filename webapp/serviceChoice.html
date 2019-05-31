@@ -29,10 +29,23 @@
     </header>
     <main class="services" ng-controller="servicesController as service">
         <center><h2 class="errorText" ng-if="getCookie('username').length < 2" style="color: red">Zaloguj się aby kontynuować !</h2></center>
-        <table>
+        <table style="background-color: transparent; border: 0">
             <tbody>
             <tr>
-                <th ng-repeat="s in service.services">
+                <th ng-repeat="s in service.services | limitTo : 2: 0">
+                    <div class="servicePackage">
+                        <div class="image"><img src="img/service1.jpeg" width="225px" height="125px"></div>
+                        <div class="desc">
+                            <h2 style="text-align: center;">{{s.name}}</h2><br/>
+                            <span>Czas : {{s.duration}} minut</span><br/>
+                            <span>Koszt: {{s.price}} zł</span>
+                        </div>
+                    </div>
+                    <a ng-click="service.makeReservation(s.name, s.id)" class="myButton">Rezerwuj</a>
+                </th>
+            </tr>
+            <tr>
+                <th ng-repeat="s in service.services | limitTo : 4 : 2">
                     <div class="servicePackage">
                         <div class="image"><img src="img/service1.jpeg" width="225px" height="125px"></div>
                         <div class="desc">

@@ -4,8 +4,15 @@ angular.module('mainApp').controller('servicesController', function servicesCont
     function refreshData() {
         $http.get('api/services').then(function (response) {
             object.services = response.data;
+            object.servicesLength = object.services.length;
+            object.begin = 0;
         });
     }
+
+    object.increment = function() {
+      object.begin += 1;
+      console.log(object.begin);
+    };
 
     object.makeReservation = function(name, service) {
         if($scope.getCookie('username').length > 1) {
