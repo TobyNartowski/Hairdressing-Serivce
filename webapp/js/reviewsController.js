@@ -24,14 +24,20 @@ angular.module('mainApp').controller('reviewsController', function reviewsContro
             for (let i = 0; i < response.data.length; i++) {
                 if (response.data[i].review == null) {
                     response.data[i].review = review;
+                    if (response.data[i].client != null) {
+
+                        response.data[i].client.firstName = '';
+                        response.data[i].client.lastName = '';
+                    }
                 }
             }
             object.employee = response.data;
+            console.log(object.employee);
 
             if(object.employee[0] == null || object.employee[0] == undefined || object.employee.length == 0) {
                 object.dataPresent = 0;
             } else {
-                object.dataPresent = object.employee[0].id > 1 ? 1 : 0;
+                object.dataPresent = object.employee[0].id >= 1 ? 1 : 0;
             }
         }, function error(response) {
             object.dataPresent = 0;
@@ -45,7 +51,9 @@ angular.module('mainApp').controller('reviewsController', function reviewsContro
 
         if($scope.getCookie('emp').length < 1) {
             object.emp = $scope.getCookie('id');
+            object.empLogged = 2;
         } else {
+            object.empLogged = 0;
             setTimeout(()=> {
                 $scope.removeServiceCookie('emp');
             },5000);

@@ -3,47 +3,51 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/Style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bulma.css" />
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
     <script src="js/reviewsController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/lib/angular-sanitize/angular-sanitize.js"></script>
     <title>Reviews</title>
 </head>
 <body ng-controller="reviewsController as review">
 <header ng-init="review.getEmployee()">
     <nav ng-if="getCookie('emp').length < 1">
-        <ol>
-            <li><p><a href="indexEmployee.html">Super salon usługowy </a></p></li>
-            <li><a class="employeeOptions" href="employeeProducts.html"><span class="optionsInfo">Stan magazynów</span></a></li>
-            <li><a class="employeeOptions" href="employeeReview.html"><span class="optionsInfo">Zobacz opinie</span></a></li>
-        </ol>
-        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
-        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+            <p class="logoFrame"><a href="indexEmployee.html"><img src="/img/beaute_white.png" style="height: 40px"></a></p>
+            <ol>
+                <li><a class="employeeOptions" href="employeeProducts.html"><span class="optionsInfo">Stan magazynów</span></a></li>
+                <li><a class="employeeOptions" href="employeeReview.html"><span class="optionsInfo">Zobacz opinie</span></a></li>
+            </ol>
+            <a href="loginEmployee.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
 
-        <div style="clear: both"> </div>
+            <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+
+            <div style="clear: both"> </div>
     </nav>
     <nav ng-if="getCookie('emp').length >= 1">
-        <ol>
-            <li><p><a href="index.html">Super salon usługowy </a></p></li>
-            <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
-            <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
-            <li><div class="button"><a href="info.html">O NAS </a></div></li>
-            <li><div class="button"><a href="reviewShowAll.html">OPINIE
-            </a></div></li>
-        </ol>
-        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
-        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+            <p class="logoFrame"><a href="index.html"><img src="/img/beaute_white.png" style="height: 40px"></a></p>
+            <ol>
+                <li><div class="nav-button"><a href="serviceChoice.html">OFERTA </a></div></li>
+                <li><div class="nav-button"><a href="employee.html">ZESPÓŁ </a></div></li>
+                <li><div class="nav-button"><a href="info.html">O NAS </a></div></li>
+                <li><div class="nav-button"><a href="reviewShowAll.html">OPINIE</a></div></li>
+                <li><div class="nav-button"><a href="contact.html">KONTAKT</a></div></li>
+            </ol>
+            <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
 
-        <div style="clear: both"> </div>
+            <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+
+            <div style="clear: both"> </div>
     </nav>
 </header>
 <main class="employee">
-    <center ng-if="review.dataPresent == 0"><h3>Ten pracownik nie ma jeszcze opini</h3></center>
+    <center ng-if="review.dataPresent == 0"><h1>Ten pracownik nie ma jeszcze opini</h1></center>
     <div ng-if="review.dataPresent == 1">
-        <center><h3>Opinie o {{review.employee[0].workDate.employees[0].firstName + ' ' + review.employee[0].workDate.employees[0].lastName}}</h3>
-            <table>
+        <center><h1>Opinie o {{review.employee[0].workDate.employees[0].firstName + ' ' + review.employee[0].workDate.employees[0].lastName}}</h1>
+            <table class="table is-bordered is-hoverable">
                 <thead>
                     <tr>
                         <th>Usługa</th>
@@ -67,16 +71,32 @@
     </div>
 </main>
 <center>
-    <div class="content">
-        <a ng-if="getCookie('emp').length < 1" href="index.html" class="myButton">Powrót !</a>
-        <a ng-if="getCookie('emp').length >= 1" href="indexEmployee.html" class="myButton">Powrót !</a>
+    <div class="buttonPlace">
+        <a ng-if="review.empLogged < 1" href="index.html" class="button is-info is-large">Powrót !</a>
+        <a ng-if="review.empLogged > 1" href="indexEmployee.html" class="button is-info is-large">Powrót !</a>
 
     </div>
 </center>
 
-<footer><br/>
-    <p>Super salon usługowy</p>
-    <div class="flaticon">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-</footer>
+<div ng-if="review.empLogged < 1" ng-bind-html="Footer"></div>
+<div ng-if="review.empLogged > 1">
+    <footer class="footer">
+        <div class="employeeFooterAside">
+            <p><img class="logoTileEmployee" src="/img/beaute_white.png"></p>
+        </div>
+        <div class="employeeFooterAsideRight">
+            <span>Dzisiejsza data <span ng-bind="currentDate | date:'hh:mm dd-mm-yyyy'"> </span> </span>
+        </div>
+        <div></div>
+        <div></div>
+        <center><h3 class="copyRightEmployee">Copyright © Beauté </h3></center>
+        <p class="flaticon bottomFooter">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+        <p>Bulma by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+
+        </p>
+    </footer>
+</div>
 </body>
 </html>

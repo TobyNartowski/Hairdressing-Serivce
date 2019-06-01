@@ -10,6 +10,8 @@
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="js/lib/angular-sanitize/angular-sanitize.js"></script>
+
     <title>Change service</title>
 </head>
 <body ng-controller="adminController as admin">
@@ -45,9 +47,6 @@
     </div>
 </main>
 <div style="clear: both"></div>
-<footer class="loginFooter"><br/>
-    <p>Super salon usługowy</p>
-    <div class="flaticon">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-</footer>
+<div ng-bind-html="Footer"></div>
 </body>
 </html>

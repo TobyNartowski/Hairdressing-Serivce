@@ -2,7 +2,7 @@ angular.module('mainApp').controller('workdatesController', function workdatesCo
     var object = this;
 
     function refreshData() {
-        $http.get('api/work-dates').then(function (reponse) {
+        $http.get('api/work-dates').then(function (response) {
             object.dates = response.data;
         });
     }

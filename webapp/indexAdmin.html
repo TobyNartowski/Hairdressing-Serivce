@@ -3,132 +3,95 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/Style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bulma.css" />
+    <script src="js/lib/chart.js/dist/Chart.js"></script>
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
     <script src="js/adminController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/lib/angular-sanitize/angular-sanitize.js"></script>
+
     <title>Home</title>
 </head>
 <body ng-controller="adminController as admin">
-<header ng-init="admin.getData();">
+<header class="nav" ng-init="admin.getData()">
     <nav>
+        <p class="logoFrame"><a href="indexAdmin.html"><img src="/img/beaute_white.png" style="height: 40px"></a></p>
         <ol>
-            <li><p><a href="indexAdmin.html">Super salon usługowy </a></p></li>
+            <li><a class="employeeOptions" href="adminEmployee.html"><span class="optionsInfo">Pracownicy</span></a></li>
+            <li><a class="employeeOptions" href="adminProducts.html"><span class="optionsInfo">Produkty</span></a></li>
+            <li><a class="employeeOptions" href="adminServices.html"><span class="optionsInfo">Usługi</span></a></li>
+            <li><a class="employeeOptions" href="adminReviews.html"><span class="optionsInfo">Opinie</span></a></li>
         </ol>
-        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="30px"></div></a>
-        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="16px"></div></a>
+        <a href="loginEmployee.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+
+        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
 
         <div style="clear: both"> </div>
     </nav>
 </header>
 <main>
     <div class="userReservations" style="width: 100%">
-        <center>
-            <div class="adminBlock">
-                <div class="adminPane">
-                    <h3>Pracownicy</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Pracownik</th>
-                            <th>Login</th>
-                            <th>Usuń</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="e in admin.employee | filter:{e:'!'} track by $index" >
-                            <th>{{e.id}}</th>
-                            <th>{{e.firstName + ' ' + e.lastName}}</th>
-                            <th>{{e.login}}</th>
-                            <th class="adminLink" ng-click="admin.open('eid', e.id, 'Employee')"><img src="/img/clear-button.png"></th>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <a href="addEmployee.html" class="myButton">Dodaj Pracownika</a>
-                </div>
-                <div class="adminPane">
-                    <h3>Usługi</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nazwa</th>
-                            <th>Czas</th>
-                            <th>Cena</th>
-                            <th>Modyfikuj</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="s in admin.service | filter:{s:'!'} track by $index" >
-                            <th>{{s.id}}</th>
-                            <th>{{s.name}}</th>
-                            <th>{{s.duration}}</th>
-                            <th>{{s.price}}</th>
-                            <th class="adminLink" ng-click="admin.open('sid', s.id, 'Service')"><img src="/img/configuration.png"></th>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <a href="modifyService.html" class="myButton">Dodaj Usługę</a>
-                </div>
-                <div style="clear: both"></div>
-            </div>
-            <div class="adminBlock">
-                <div class="adminPane">
-                    <h3>Opinie</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tytuł</th>
-                            <th>Treść</th>
-                            <th>Data</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="r in admin.review | filter:{r:'!'} track by $index" >
-                            <th>{{r.id}}</th>
-                            <th>{{r.title}}</th>
-                            <th>{{r.content}}</th>
-                            <th><span ng-bind="r.date | date:'hh:mm'"> </span></th>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="adminPane">
-                    <h3>Produkty</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nazwa</th>
-                            <th>Cena</th>
-                            <th>Ilość w magazynie</th>
-                            <th>Modyfikuj</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="p in admin.product | filter:{p:'!'} track by $index" >
-                            <th>{{p.type.id}}</th>
-                            <th>{{p.type.name}}</th>
-                            <th>{{p.type.price}}</th>
-                            <th>{{p.quantity}}</th>
-                            <th class="adminLink" ng-click="admin.open('pid', p.id, 'Product')"><img src="/img/configuration.png"></th>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <a href="modifyProduct.html" class="myButton">Dodaj Produkt</a>
-                </div>
-                <div style="clear: both"></div>
-            </div>
-        </center>
+        <center><canvas id="myChart"></canvas></center>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
     </div>
 </main>
-<footer class="loginFooter"><br/>
-    <p>Super salon usługowy</p>
-    <div class="flaticon">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div style="clear: both;"></div>
+<footer class="footer" style="margin-top: 0!important;">
+    <div class="employeeFooterAside">
+        <p><img class="logoTileEmployee" src="/img/beaute_white.png"></p>
+    </div>
+    <div class="employeeFooterAsideRight">
+        <span>Dzisiejsza data <span ng-bind="currentDate | date:'hh:mm dd-mm-yyyy'"> </span> </span>
+    </div>
+    <div></div>
+    <div></div>
+    <center><h3 class="copyRightEmployee">Copyright © Beauté </h3></center>
+    <p class="flaticon bottomFooter">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+    <p>Bulma by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
 </footer>
 </body>
 </html>

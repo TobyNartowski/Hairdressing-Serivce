@@ -3,98 +3,131 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/Style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bulma.css"/> 
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
     <script src="js/reservationsController.js"></script>
     <script src="js/lib/angular-cookies/angular-cookies.js"></script>
     <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/lib/angular-sanitize/angular-sanitize.js"></script>
     <title>Home</title>
 </head>
 <body ng-controller="reservationsController as rez">
-    <header>
+    <header class="nav">
         <nav>
-            <ol>
-                <li><p><a href="index.html">Super salon usługowy </a></p></li>
-                <li><div class="button"><a href="serviceChoice.html">OFERTA </a></div></li>
-                <li><div class="button"><a href="employee.html">ZESPÓŁ </a></div></li>
-                <li><div class="button"><a href="info.html">O NAS </a></div></li>
-                <li><div class="button"><a href="reviewShowAll.html">OPINIE
-                </a></div></li>
+            <p class="logoFrame"><a href="index.html"><img src="/img/beaute_white.png" style="height: 40px"></a></p>
+             <ol>
+                <li><div class="nav-button"><a href="serviceChoice.html">OFERTA </a></div></li>
+                <li><div class="nav-button"><a href="employee.html">ZESPÓŁ </a></div></li>
+                <li><div class="nav-button"><a href="info.html">O NAS </a></div></li>
+                <li><div class="nav-button"><a href="reviewShowAll.html">OPINIE</a></div></li>
+                 <li><div class="nav-button"><a href="contact.html">KONTAKT</a></div></li>
             </ol>
             <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+            
             <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
-
+            
             <div style="clear: both"> </div>
         </nav>
     </header>
-    <main class="registerSucces" ng-if="rez.dataPresent == 0 && rez.historyPresent == 0" >
-
-                <span>Najlepszy salon usługowy</span>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.</p>
-                <br/><br/>
+    <main class="indexInfo" ng-if="rez.dataPresent == 0 && rez.historyPresent == 0" >
+        <div class="indexInfoText">
+            <h1>Zależy nam na twoich włosach!</h1>
+            <p>„Odkryj swój własny styl. Nie próbuj powtarzać tego, co już napisano - miej odwagę robić swoje i nie bój się robić czegoś innego. ”</p>
+        </div>    
     </main>
     <div class="userReservations" ng-if="rez.dataPresent == 1">
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Twoje rezerwacje
+                    </h1>
+                </div>
+            </div>
+        </section>
         <center>
-            <h2> Twoje rezerwacje </h2>
-            <table>
+            <table class="table is-bordered is-hoverable">
                 <thead>
-                <tr>
-                    <th>Nazwa usługi</th>
-                    <th>Czas trwania</th>
-                    <th>Cena</th>
-                    <th>Data</th>
-                    <th>Modyfikuj</th>
-                </tr>
+                    <tr>
+                        <th>Nazwa usługi</th>
+                        <th>Czas trwania</th>
+                        <th>Cena</th>
+                        <th>Data</th>
+                        <th>Modyfikuj</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="r in rez.reservations" >
-                    <th>{{r.service.name}}</th>
-                    <th>{{r.service.duration}}</th>
-                    <th>{{r.service.price}}</th>
-                    <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"></span></th>
-                    <th><a ng-click="rez.setService(r)">Modyfikuj</a></th>
-                </tr>
+                    <tr ng-repeat="r in rez.reservations" >
+                        <th>{{r.service.name}}</th>
+                        <th>{{r.service.duration}}</th>
+                        <th>{{r.service.price}}</th>
+                        <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"></span></th>
+                        <th><a ng-click="rez.setService(r)">Modyfikuj</a></th>
+                    </tr>
                 </tbody>
             </table>
+            <a href="serviceChoice.html" class="button is-info is-large">Zrób rezerwację</a>
         </center>
     </div>
     <div class="userHistory" ng-if="rez.historyPresent == 1">
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Historia wizyt
+                    </h1>
+                </div>
+            </div>
+        </section>
         <center>
-            <h2> Historia twoich wizyt </h2>
-            <table>
+            <table class="table is-bordered is-hoverable">
                 <thead>
-                <tr>
-                    <th>Nazwa usługi</th>
-                    <th>Ocena</th>
-                    <th>Pracownik</th>
-                    <th>Data</th>
-                </tr>
+                    <tr>
+                        <th>Nazwa usługi</th>
+                        <th>Ocena</th>
+                        <th>Pracownik</th>
+                        <th>Data</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="r in rez.history | limitTo: 3">
-                    <th>{{r.service.name}}</th>
-                    <th style="max-width: 120px; overflow: hidden">{{r.review.content}}</th>
-                    <th>{{r.workDate.employees[0].firstName + ' ' + r.workDate.employees[0].lastName}}</th>
-                    <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"> </span></th>
-                </tr>
+                    <tr ng-repeat="r in rez.history | limitTo: 3">
+                        <th>{{r.service.name}}</th>
+                        <th style="max-width: 120px; overflow: hidden">{{r.review.content}}</th>
+                        <th>{{r.workDate.employees[0].firstName + ' ' + r.workDate.employees[0].lastName}}</th>
+                        <th><span ng-bind="r.workDate.date | date:'hh:mm dd.MM.yyyy'"> </span></th>
+                    </tr>
                 </tbody>
             </table>
-            <a href="history.html" class="myButton">Zobacz pełną historie</a>
+            <a href="history.html" class="button is-info is-large">Zobacz pełną historie</a>
         </center>
     </div>
     <div style="clear: both"></div>
 
         <center>
-            <div class="content">
-                <a  href="login.html" ng-if="getCookie('username').length < 2" class="myButton">Zaloguj się !</a>
-                <a href="serviceChoice.html" ng-if="getCookie('username').length > 1" class="myButton">Zrób rezerwację!</a>
+            <div class="content" ng-if="getCookie('username').length < 2">
+                <h1 class="header">Dołącz do nas już teraz!</h1>
+                <p>Będziesz mieć szanse uzyskania rabatów na wszystkie usługi<br/>
+                oraz będziesz otrzymywać powiadomienia o zaplanowanych wizytach.</p>
+                <div class="indexLogin" ng-if="getCookie('username').length < 2">
+                    <a  href="login.html"  class="button is-info is-large">Zaloguj się !</a>
+                </div>
 
             </div>
         </center>
-    <footer class="loginFooter"><br/>
-        <p>Super salon usługowy</p>
-        <div class="flaticon">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-    </footer>
+    <div class="informationContainer">
+        <div class="infoText">
+            <center>
+                <h3><strong>Spraw aby fryzura była twoim atutem</strong></h3>
+                <p>W naszym salonie możesz puścić wodze fantazji i stworzyć fryzurę jakiej nikt jeszcze nie miał.</p>
+                <a href="serviceChoice.html" class="button is-info is-large ">Sprawdź Ofertę!</a>
+            </center>
+        </div>
+        <div class="infoImage"><img src="/img/background1.png"></div>
+        <div style="clear: both"></div>
+    </div>
+    <div ng-bind-html="Footer">
+    </div>
 </body>
 </html>

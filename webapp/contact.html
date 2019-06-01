@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/Style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bulma.css"/>    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/loginController.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/lib/angular-cookies/angular-cookies.js"></script>
+    <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/lib/angular-sanitize/angular-sanitize.js"></script>
+    <title>Login page</title>
+</head>
+<body ng-app="mainApp">
+    <header class="nav">
+        <nav>
+            <p class="logoFrame"><a href="index.html"><img src="/img/beaute_white.png" style="height: 40px"></a></p>
+             <ol>
+                <li><div class="nav-button"><a href="serviceChoice.html">OFERTA </a></div></li>
+                <li><div class="nav-button"><a href="employee.html">ZESPÓŁ </a></div></li>
+                <li><div class="nav-button"><a href="info.html">O NAS </a></div></li>
+                <li><div class="nav-button"><a href="reviewShowAll.html">OPINIE</a></div></li>
+                 <li><div class="nav-button"><a href="contact.html">KONTAKT</a></div></li>
+            </ol>
+            <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+            
+            <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+            
+            <div style="clear: both"> </div>
+        </nav>
+    </header>
+    <div class="googleMap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5034.570467685699!2d20.632561!3d50.881431!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471827c10642da9b%3A0xaa4c2991d7300d6b!2sWiosenna%2C+25-001+Kielce!5e0!3m2!1spl!2spl!4v1559301247699!5m2!1spl!2spl" width="1354" height="850" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="informationContainer">
+        <div class="infoText">
+            <center>
+                <h3><strong>Spraw aby fryzura była twoim atutem</strong></h3>
+                <p>W naszym salonie możesz puścić wodze fantazji i stworzyć fryzurę jakiej nikt jeszcze nie miał.</p>
+                <a href="serviceChoice.html" class="button is-info is-large ">Nasza Oferta !</a>
+            </center>
+        </div>
+        <div class="infoImage"><img src="/img/background1.png"></div>
+        <div style="clear: both"></div>
+    </div>
+    <div ng-bind-html="Footer"></div>
+</body>
+</html>
