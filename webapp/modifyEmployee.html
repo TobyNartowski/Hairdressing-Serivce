@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/Style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bulma.css" />
     <script src="js/lib/angular/angular.js"></script>
     <script src="js/loginController.js"></script>
     <script src="js/app.js"></script>
@@ -17,31 +18,46 @@
 <body ng-controller="adminController as admin">
 <header>
     <div ng-if="getCookie('eid').length >= 1" ng-init="admin.getSingleItem('employees','eid')"></div>
-    <nav>
-        <ol>
-            <li><p><a href="indexAdmin.html">Super salon usługowy </a></p></li>
-        </ol>
-        <a href="login.html" ng-if="getCookie('username').length < 2"><div class="userFrame"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
-        <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
-        <div style="clear: both"> </div>
-    </nav>
-</header>
+        <nav>
+            <p class="logoFrame"><a href="indexAdmin.html"><img src="/img/beaute_white.png" style="height: 40px"></a></p>
+            <a href="loginEmployee.html" ng-if="getCookie('username').length < 2"><div class="userFrame" style="margin-left: 65%"><span>Zaloguj Się</span><img src="img/user2.png" height="35px"></div></a>
+
+            <a href="index.html" ng-if="getCookie('username').length > 1" ng-click="removeCookies()"><div class="userFrame" style="margin-left: 65%"><span>Wyloguj Się</span><img src="img/logout.png" height="35px"></div></a>
+
+            <div style="clear: both"> </div>
+        </nav>
+    </header>
 <main class="registerMain">
     <center>
         <h1>Czy napewno chcesz usunąć tego pracownika ?</h1>
 
         <h1 style="text-align: center; color: red; margin-top: 5%">{{admin.singleItem.firstName + ' ' + admin.singleItem.lastName}}</h1>
-    </center>
-    <div class="serviceChange" style="margin-top: 10%">
-        <a ng-click="admin.deleteEmployee(admin.singleItem.id)" class="myButton">Usuń konto pracownika</a>
 
-        <a href="indexAdmin.html" class="myButton">Anuluj</a>
+    <div class="serviceChange" style="margin-top: 10%; margin-bottom: 10%">
+        <a ng-click="admin.deleteEmployee(admin.singleItem.id)" class="button is-info is-large">Usuń konto pracownika</a>
+
+        <a href="indexAdmin.html" class="button is-info is-large" style="margin-left: 10%">Anuluj</a>
     </div>
+    </center>
 </main>
 <div style="clear: both"></div>
-<footer class="loginFooter"><br/>
-    <p>Super salon usługowy</p>
-    <div class="flaticon">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<footer class="footer">
+    <div class="employeeFooterAside">
+        <p><img class="logoTileEmployee" src="/img/beaute_white.png"></p>
+    </div>
+    <div class="employeeFooterAsideRight">
+        <span>Dzisiejsza data <span ng-bind="currentDate | date:'hh:mm dd-mm-yyyy'"> </span> </span>
+    </div>
+    <div></div>
+    <div></div>
+    <center><h3 class="copyRightEmployee">Copyright © Beauté </h3></center>
+    <p class="flaticon bottomFooter">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+    <p>Bulma by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+
+    </p>
 </footer>
+
 </body>
 </html>

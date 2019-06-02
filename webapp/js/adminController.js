@@ -2,17 +2,9 @@ angular.module('mainApp').controller('adminController', function adminController
     var object = this;
 
     object.getData = function () {
-
-
-    };
-
-    object.getProducts = function() {
         $http.get('api/products').then(function (response) {
             object.product = response.data;
         });
-    };
-
-    object.getEmployees = function() {
         $http.get('api/employees').then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
                 if (response.data[i].firstName === 'ADMIN' && response.data[i].lastName === 'ADMIN') {
@@ -21,15 +13,9 @@ angular.module('mainApp').controller('adminController', function adminController
             }
             object.employee = response.data;
         });
-    };
-
-    object.getServices = function() {
         $http.get('api/services').then(function (response) {
             object.service = response.data;
         });
-    };
-
-    object.getReviews = function() {
         $http.get('api/reviews').then(function (response) {
             object.review = response.data;
         })
@@ -65,6 +51,16 @@ angular.module('mainApp').controller('adminController', function adminController
             $window.location.href = 'http://localhost:8080/indexAdmin.html';
         });
 
+    };
+    object.getProduct = function() {
+      $http.get('api/products').then(function (response) {
+          object.products = response.data;
+      })
+    };
+
+    object.addProduct = function(product) {
+        object.singleItem.products[object.singleItem.products.length] = product;
+      $http.put('api/services', object.singleItem);
     };
 
     object.open = function(key, service, page) {

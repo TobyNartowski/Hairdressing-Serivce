@@ -41,6 +41,7 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
         $http.post('api/reservations?client_id=' + object.clientId + '&service_id=' + object.serviceId +
             '&workDate_id=' + object.workDateId,
             {}).then(function () {
+                object.clientId = null;
             $window.location.href = 'http://localhost:8080/serviceAccepted.html';
         });
     };

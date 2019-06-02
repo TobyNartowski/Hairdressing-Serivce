@@ -58,7 +58,7 @@
                      <th>{{r.review.content}}</th>
                      <th>{{r.workDate.employees[0].firstName + ' ' + r.workDate.employees[0].lastName}}</th>
                      <th>{{r.client.firstName + ' ' + r.client.lastName}}</th>
-                     <th>{{r.workDate.date}}</th>
+                     <th><span ng-bind="r.workDate.date | date:'hh:mm dd-mm-yyyy'"> </span></th>
                  </tr>
                  </tbody>
              </table>

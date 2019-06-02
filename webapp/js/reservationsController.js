@@ -90,14 +90,42 @@ angular.module('mainApp').controller('reservationsController', function reservat
     };
 
     object.setService = function(reservation) {
-        $scope.setServiceCookie('serviceName', reservation.service.name);
-        $scope.setServiceCookie('serviceDate', reservation.workDate.date);
-        $scope.setServiceCookie('serviceEmployeeF', reservation.workDate.employees[0].firstName);
-        $scope.setServiceCookie('serviceEmployeeL', reservation.workDate.employees[0].lastName);
+        $scope.setServiceCookie('sid', reservation);
 
         setTimeout(() =>{
             $window.location.href = 'http://localhost:8080/modifyReservation.html';
-        }, 1000);
+        }, 700);
+    };
+
+    object.getServiceToModyfication = function() {
+      $http.get('api/reservations/' + $scope.getCookie('sid')).then(function (response) {
+          object.reservationToModify = response.data;
+      });
+      $http.get('api/work-dates').then(function (response) {
+          object.newDate = response.data;
+      });
+
+      setTimeout(() => {
+          $scope.removeServiceCookie('sid');
+      }, 1000);
+    };
+
+    object.deleteService = function(reservation) {
+      $http.delete('api/reservations/' + reservation.id).then(function () {
+          $window.location.href = 'http://localhost:8080/serviceDeleted.html';
+      }, function () {
+          console.log('API ERROR');
+      })
+    };
+
+    object.changeReservationDate = function (reservation, workdate) {
+        $http.delete('api/reservations/' + reservation.id).then(function () {
+            $http.post('api/reservations?client_id=' + reservation.client.id + '&service_id=' + reservation.service.id +
+                '&workDate_id=' + workdate,
+                {}).then(function () {
+                $window.location.href = 'http://localhost:8080/serviceAltered.html';
+            });
+        });
     };
 
     getId();

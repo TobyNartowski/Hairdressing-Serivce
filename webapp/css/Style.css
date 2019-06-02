@@ -406,7 +406,7 @@ aside {
     padding: 3%;
     position: absolute;
     bottom: 0;
-    top: 5%;
+    top: 77px;
     left: 0;
 }
 .serviceDate {
@@ -470,7 +470,7 @@ aside {
     width: 40%;
     float: left;
     padding: 3%;
-    margin-top: 9%;
+    /*margin-top: 9%;*/
 }
 
 .summaryInput input, .summaryInput span {
@@ -531,11 +531,6 @@ aside {
 }
 
 /*ADMIN INDEX*/
-.adminPane {
-    width: 50%;
-    margin: auto;
-    float: left;
-}
 
 .adminBlock {
     height: 100%;
@@ -543,11 +538,11 @@ aside {
 }
 
 
-.adminPane table {
-    font-size: 1.1rem;
-    margin-bottom: 3%;
-    margin-top: 1%;
-}
+/*.adminPane table {*/
+/*    font-size: 1.1rem;*/
+/*    margin-bottom: 3%;*/
+/*    margin-top: 1%;*/
+/*}*/
 
 .adminPane .myButton {
     margin-bottom: 2%;
@@ -734,4 +729,15 @@ table th {
 }
 #myChart {
     width: 70% !important;
+}
+.userReservations .hero {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.modifyProduct {
+    width: 30% !important;
+}
+.serviceProducts {
+    width: 45%;
+    float: left;
 }
