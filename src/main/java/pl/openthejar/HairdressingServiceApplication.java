@@ -1,6 +1,7 @@
 package pl.openthejar;
 
 import pl.openthejar.dao.ClientDao;
+import pl.openthejar.dao.DatabaseProxy;
 import pl.openthejar.dao.EmployeeDao;
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.misc.DatabaseService;

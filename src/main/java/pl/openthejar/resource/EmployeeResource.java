@@ -1,6 +1,5 @@
 package pl.openthejar.resource;
 
-import com.mysql.cj.xdevapi.JsonArray;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import pl.openthejar.dao.EmployeeDao;
@@ -12,12 +11,7 @@ import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.AbstractMap;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Path("/employees")
 public class EmployeeResource {
@@ -79,7 +73,6 @@ public class EmployeeResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
-
 
     @GET
     @Path("/{id}/reservations")
