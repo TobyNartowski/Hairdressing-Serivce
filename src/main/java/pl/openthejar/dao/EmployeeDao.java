@@ -45,4 +45,20 @@ public class EmployeeDao extends EntityDao<Employee> {
 
         return result;
     }
+
+    public List<Reservation> getMonthlyReservations(Employee employee) {
+        final String query = "SELECT r FROM Reservation r";
+        TypedQuery<Reservation> typedQuery = entityManager.createQuery(query, Reservation.class);
+
+        List<Reservation> result = new ArrayList<>();
+        for (Reservation reservation : typedQuery.getResultList()) {
+            if (reservation.getWorkDate() != null
+                    && DateUtils.isThisMonth(reservation.getWorkDate().getDate())
+                    && reservation.getWorkDate().getEmployees().contains(employee)) {
+                result.add(reservation);
+            }
+        }
+
+        return result;
+    }
 }

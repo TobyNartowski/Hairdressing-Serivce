@@ -1,17 +1,23 @@
 package pl.openthejar.resource;
 
+import com.mysql.cj.xdevapi.JsonArray;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import pl.openthejar.dao.EmployeeDao;
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.model.Employee;
-import pl.openthejar.model.Reservation;
 import pl.openthejar.model.WorkDate;
 
 import javax.persistence.NoResultException;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Path("/employees")
 public class EmployeeResource {
@@ -54,6 +60,26 @@ public class EmployeeResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+
+    @GET
+    @Path("/monthly-reservations")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response monthlyReservations() {
+        try {
+            JSONArray array = new JSONArray();
+            dao.findAll().forEach(e -> {
+                JSONObject employeeObject = new JSONObject();
+                employeeObject.put("employee", e.getFirstName() + " " + e.getLastName());
+                employeeObject.put("reservations", dao.getMonthlyReservations(e).size());
+                array.put(employeeObject);
+            });
+
+            return Response.ok(array.toString(), MediaType.APPLICATION_JSON_TYPE).build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
 
     @GET
     @Path("/{id}/reservations")

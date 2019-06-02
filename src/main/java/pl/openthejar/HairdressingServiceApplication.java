@@ -15,10 +15,10 @@ import java.util.concurrent.Executors;
 public class HairdressingServiceApplication {
 
     public static void main(String[] args) {
-//        loadDummyData();
-//        loadMoreDummyData();
-//        loadNextDay();
-//        new DatabaseService();
+        loadDummyData();
+        loadMoreDummyData();
+        loadNextDay();
+        new DatabaseService();
     }
 
     private static void loadNextDay() {
