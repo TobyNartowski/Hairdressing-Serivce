@@ -35,7 +35,7 @@
     <main class="serviceChange" ng-controller="workDatesInfo as date">
         <div class="summary">
             <p class="title is-2">Podsumowanie</p>
-            <p>Usługa: <span>{{date.serviceName}}</span></p>
+            <p>Usługa: <span>{{date.serviceName.replace('%20', ' ')}}</span></p>
             <p>Termin: <span ng-bind="date.date | date:'hh:mm dd.MM.yyyy'"> </span></p>
             <p>Pracownik: <span>{{date.employeeFirstName +' ' + date.employeeLastName}}</span></p><br/><br/>
             <p>Aby zmienić temrin wizyty:<br/>
@@ -44,7 +44,7 @@
         </div>
         <div class="summaryInput">
             <span>Użytkownik :</span><br/>
-            <p class="title is-5 is-bold">{{date.username}}</p>
+            <p class="title is-5 is-bold">{{date.username.replace('%40', '@')}}</p>
             <span>Imię :</span><br/>
             <p class="title is-5 is-bold">{{date.firstName}}</p>
             <span>Nazwisko :</span><br/>

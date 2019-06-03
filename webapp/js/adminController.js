@@ -19,6 +19,7 @@ angular.module('mainApp').controller('adminController', function adminController
         $http.get('api/reviews').then(function (response) {
             object.review = response.data;
         })
+        object.generateDiagram();
     };
 
 
@@ -69,4 +70,10 @@ angular.module('mainApp').controller('adminController', function adminController
             $window.location.href = 'http://localhost:8080/modify' + page +'.html';
         },500)
     };
+    object.generateDiagram = function() {
+        $http.get('api/employees/monthly-reservations').then(function (response) {
+            object.diagramData = response.data;
+        });
+
+    }
 });

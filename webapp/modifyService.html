@@ -34,8 +34,8 @@
 
             <p ng-if="admin.singleItem.id">Id: <span>{{admin.singleItem.id}}</span></p>
             <p>Nazwa usługi: <input class="input modifyProduct" type="text" value="{{admin.singleItem.name}}" ng-model="admin.singleItem.name"></p>
-            <p>Cena: <input class="input modifyProduct" type="text" value="{{admin.singleItem.price}}" ng-model="admin.singleItem.price"></p>
-            <p>Czas trwania(w minutach): <input class="input modifyProduct" type="text" value="{{admin.singleItem.duration}}" ng-model="admin.singleItem.duration"></p><br/>
+            <p>Cena(zł): <input class="input modifyProduct" type="text" value="{{admin.singleItem.price}}" ng-model="admin.singleItem.price"></p>
+            <p>Czas trwania(min): <input class="input modifyProduct" type="text" value="{{admin.singleItem.duration}}" ng-model="admin.singleItem.duration"></p><br/>
 
             <a ng-if="!admin.singleItem.id" ng-click="admin.setNeed()" class="button is-info is-large">Utwórz</a>
             <a ng-if="admin.singleItem.id" ng-click="admin.update('services')" class="button is-info is-large">Zatwierdź</a>
@@ -73,7 +73,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="p in admin.products" >
-            <th>{{p.type.name}}}</th>
+            <th>{{p.type.name}}</th>
             <th>{{p.type.price}}</th>
             <th>{{p.quantity}}</th>
             <th><a ng-click="admin.addProduct(p)"><span style="font-weight: 900">+</span></a></th>

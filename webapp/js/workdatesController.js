@@ -21,18 +21,6 @@ angular.module('mainApp').controller('workdatesController', function workdatesCo
 angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($scope, $http, $window) {
     let object = this;
 
-    object.getComleteInfo = function () {
-        object.date = $scope.getCookie('date');
-        object.employeeFirstName = $scope.getCookie('employeeFirstName');
-        object.employeeLastName = $scope.getCookie('employeeLastName');
-        object.serviceName = $scope.getCookie('service');
-        object.firstName = $scope.getCookie('firstName');
-        object.lastName = $scope.getCookie('lastName');
-        object.username = $scope.getCookie('username');
-        object.workDateId = $scope.getCookie('workDateId');
-        object.clientId = $scope.getCookie('id');
-        object.serviceId = $scope.getCookie('serviceId');
-    };
     object.getComleteInfo();
 
     object.saveService = function () {
@@ -45,6 +33,12 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
             $window.location.href = 'http://localhost:8080/serviceAccepted.html';
         });
     };
+    object.logout = function () {
+        $scope.removeCookies();
+        setTimeout(()=>{
+            object.removeService('index');
+        }, 500);
+    };
 
     object.removeService = function(page) {
         $scope.removeServiceCookie('serviceName');
@@ -55,13 +49,6 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
         $window.location.href = 'http://localhost:8080/' + page +'.html';
     };
 
-    object.logout = function () {
-        $scope.removeCookies();
-        setTimeout(()=>{
-            object.removeService('index');
-        }, 500);
-    };
-
     function clearCookies() {
         $scope.removeServiceCookie('serviceId');
         $scope.removeServiceCookie('service');
@@ -70,4 +57,16 @@ angular.module('mainApp').controller('workDatesInfo', function workDatesInfo($sc
         $scope.removeServiceCookie('employeeLastName');
         $scope.removeServiceCookie('workDateId');
     }
+    object.getComleteInfo = function () {
+        object.date = $scope.getCookie('date');
+        object.employeeFirstName = $scope.getCookie('employeeFirstName');
+        object.employeeLastName = $scope.getCookie('employeeLastName');
+        object.serviceName = $scope.getCookie('service');
+        object.firstName = $scope.getCookie('firstName');
+        object.lastName = $scope.getCookie('lastName');
+        object.username = $scope.getCookie('username');
+        object.workDateId = $scope.getCookie('workDateId');
+        object.clientId = $scope.getCookie('id');
+        object.serviceId = $scope.getCookie('serviceId');
+    };
 });

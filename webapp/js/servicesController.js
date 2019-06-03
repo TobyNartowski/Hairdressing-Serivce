@@ -14,12 +14,15 @@ angular.module('mainApp').controller('servicesController', function servicesCont
       console.log(object.begin);
     };
 
-    object.makeReservation = function(service) {
+    object.makeReservation = function(service, name) {
         if($scope.getCookie('username').length > 1) {
 
             $scope.setServiceCookie('serviceId', service);
+            $scope.setServiceCookie('service', name);
 
-            $window.location.href = 'http://localhost:8080/serviceDate.html';
+            setTimeout(()=> {
+                $window.location.href = 'http://localhost:8080/serviceDate.html';
+            }, 700);
         } else {
             let message = angular.element(document.querySelector('.errorText'));
             message.addClass('errorTextActive');
