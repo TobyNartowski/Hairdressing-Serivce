@@ -45,4 +45,16 @@ public class ServiceResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response remove(@PathParam("id") Long id) {
+        try {
+            dao.remove(id);
+            return Response.ok().build();
+        } catch (NoResultException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
 }
