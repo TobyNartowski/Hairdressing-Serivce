@@ -11,7 +11,9 @@ import org.junit.runners.Suite;
         EmployeeResourceTest.class,
         ClientResourceTest.class,
         ProductResourceTest.class,
-        ServiceResourceTest.class
+        ServiceResourceTest.class,
+        WorkDateResourceTest.class,
+        DiscountResourceTest.class
 })
 public class AllTests {
 }
