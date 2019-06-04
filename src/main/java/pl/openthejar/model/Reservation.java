@@ -8,6 +8,9 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Encja rezerwacji
+ */
 @Entity
 @NoArgsConstructor
 @Setter @Getter

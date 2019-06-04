@@ -10,17 +10,29 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Endpoint klienta
+ */
 @Path("/clients")
 public class ClientResource {
 
     private ClientDao clientDao = new ClientDao();
 
+    /**
+     * Pobiera wszystkich klientow
+     * @return Lista klientow
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Client> getAll() {
         return clientDao.findAll();
     }
 
+    /**
+     * Pobiera jednego klienta o podanym id
+     * @param id Identyfikator klienta
+     * @return Obiekt klienta
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -32,6 +44,11 @@ public class ClientResource {
         }
     }
 
+    /**
+     * Dodaje nowego klienta
+     * @param client Obiekt klienta, ktory ma zostac dodany
+     * @return Dodany obiekt klienta
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -39,6 +56,12 @@ public class ClientResource {
         return clientDao.save(client);
     }
 
+    /**
+     * Autoryzuje klienta
+     * @param username Nazwa uzytkownika
+     * @param hash Hash uzytkownika
+     * @return Obiekt klienta
+     */
     @GET
     @Path("/{username}/{hash}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -51,6 +74,11 @@ public class ClientResource {
         }
     }
 
+    /**
+     * Pobiera wszystkie opinie klienta
+     * @param id Identyfikator klienta
+     * @return Lista wszystkich opinii klienta
+     */
     @GET
     @Path("/{id}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
@@ -63,6 +91,12 @@ public class ClientResource {
         }
     }
 
+    /**
+     * Pobiera wszystkie rezerwacje klienta
+     * @param id Identyfikator klienta
+     * @param done Czy uwzgledniac rezerwacje zakonczone
+     * @return Lista rezerwacji klienta
+     */
     @GET
     @Path("/{id}/reservations")
     @Produces(MediaType.APPLICATION_JSON)
@@ -75,7 +109,11 @@ public class ClientResource {
         }
     }
 
-
+    /**
+     * Usuwa klienta o podanym id
+     * @param id Identyfikator klienta
+     * @return Poprawny status 200
+     */
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -5,6 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Encja produktu
+ */
 @Entity
 @NoArgsConstructor
 @Setter @Getter

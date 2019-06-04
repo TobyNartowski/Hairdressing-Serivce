@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+/**
+ * Encja typu produktu
+ */
 @Entity
 @Table(name = "product_type")
 @NoArgsConstructor

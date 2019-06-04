@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
+/**
+ * Encja znizki
+ */
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor

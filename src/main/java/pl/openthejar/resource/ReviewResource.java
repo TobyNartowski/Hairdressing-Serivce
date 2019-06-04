@@ -11,18 +11,31 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Endpoint opinii
+ */
 @Path("/reviews")
 public class ReviewResource {
 
     private EntityDao<Review> dao = new EntityDao<>(Review.class);
     private ReservationDao reservationDao = new ReservationDao();
 
+    /**
+     * Pobiera wszystkie opinie
+     * @return Lista wszystkich opinii
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Review> getAll() {
         return dao.findAll();
     }
 
+    /**
+     * Dodaje nowa opinie
+     * @param review Opinia, ktora ma zostac dodana
+     * @param id Identyfikator rezerwacji, do ktorej ma byc dodana opinia
+     * @return Dodana opinia
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

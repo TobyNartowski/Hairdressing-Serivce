@@ -13,18 +13,30 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Endpoint pracownika
+ */
 @Path("/employees")
 public class EmployeeResource {
 
     private EmployeeDao dao = new EmployeeDao();
     private EntityDao<WorkDate> workDateDao = new EntityDao<>(WorkDate.class);
 
+    /**
+     * Pobiera liste wszystkich pracownikow
+     * @return Lista wszystkich pracownikow
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Employee> getAll() {
         return dao.findAll();
     }
 
+    /**
+     * Pobiera pracownika o podanym id
+     * @param id Identyfikator pracownika
+     * @return Pobrany obiekt pracownika z bazy danych
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +48,11 @@ public class EmployeeResource {
         }
     }
 
+    /**
+     * Zapisuje nowego pracownika w bazie danych
+     * @param employee Pracownik do zapisania
+     * @return Obiekt zapisany w bazie danych
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,6 +60,11 @@ public class EmployeeResource {
         return dao.save(employee);
     }
 
+    /**
+     * Pobiera wszystkie dzisiejsze rezerwacje pracownika
+     * @param id Identyfikator pracownika
+     * @return Lista wszystkich dzisiejszych rezerwacji pracownika
+     */
     @GET
     @Path("/{id}/todays-reservations")
     @Produces(MediaType.APPLICATION_JSON)
@@ -55,6 +77,10 @@ public class EmployeeResource {
         }
     }
 
+    /**
+     * Pobiera ilosc wszystkich rezerwacji pracownikow
+     * @return Lista ilosci wszystkich rezerwacji pracownikow
+     */
     @GET
     @Path("/monthly-reservations")
     @Produces(MediaType.APPLICATION_JSON)
@@ -74,6 +100,12 @@ public class EmployeeResource {
         }
     }
 
+    /**
+     * Pobiera wszystkie rezerwacje pracownika
+     * @param id Identyfikator pracownika
+     * @param done Czy rezerwacje maja byc zakonczone
+     * @return Lista wszystkich rezerwacji pracownika
+     */
     @GET
     @Path("/{id}/reservations")
     @Produces(MediaType.APPLICATION_JSON)
@@ -86,6 +118,11 @@ public class EmployeeResource {
         }
     }
 
+    /**
+     * Usuwa pracownika
+     * @param id Identyfikator pracownika
+     * @return Poprawny status 200
+     */
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

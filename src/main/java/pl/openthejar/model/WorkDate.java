@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Encja terminu
+ */
 @Entity
 @Table(name = "work_date")
 @RequiredArgsConstructor

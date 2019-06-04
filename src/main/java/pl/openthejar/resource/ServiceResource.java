@@ -10,17 +10,29 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Endpoint uslugi
+ */
 @Path("/services")
 public class ServiceResource {
 
     private EntityDao<Service> dao = new EntityDao<>(Service.class);
 
+    /**
+     * Pobiera wszystkie uslugi
+     * @return Lista wszystkich uslug
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Service> getAll() {
         return dao.findAll();
     }
 
+    /**
+     * Dodaje nowa usluge do bazy danych
+     * @param service Usluga, ktora ma zostac dodana
+     * @return Dodana usluga
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -28,6 +40,11 @@ public class ServiceResource {
         return dao.save(service);
     }
 
+    /**
+     * Uaktualnia usluge w bazie danych
+     * @param service Uaktualniona usluga
+     * @return Uaktualniona usluga
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -35,6 +52,11 @@ public class ServiceResource {
         return dao.saveOrUpdate(service);
     }
 
+    /**
+     * Pobiera usluge z bazy danych
+     * @param id Identyfikator uslugi
+     * @return Pobrana usluga
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +68,11 @@ public class ServiceResource {
         }
     }
 
+    /**
+     * Usuwa usluge z bazy danych
+     * @param id Identyfikator uslugi
+     * @return Kod statusu 200
+     */
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

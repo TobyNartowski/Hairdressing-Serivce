@@ -4,6 +4,9 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
+/**
+ * Podstawowa encja przechowujaca tylko klucz glowny
+ */
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

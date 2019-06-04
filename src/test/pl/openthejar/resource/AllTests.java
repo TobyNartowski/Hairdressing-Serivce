@@ -3,6 +3,9 @@ package pl.openthejar.resource;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+/**
+ * Przeprowadza wszystkie testy
+ */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         EmployeeResourceTest.class,

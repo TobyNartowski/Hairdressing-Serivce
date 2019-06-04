@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
+/**
+ * Encja opinii
+ */
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor

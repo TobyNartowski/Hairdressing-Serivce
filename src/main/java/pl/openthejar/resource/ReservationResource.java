@@ -8,6 +8,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Endpoint rezerwacji
+ */
 @Path("/reservations")
 public class ReservationResource {
 
@@ -15,6 +18,11 @@ public class ReservationResource {
     private EntityDao<WorkDate> workDateDao = new EntityDao<>(WorkDate.class);
     private EmployeeDao employeeDao = new EmployeeDao();
 
+    /**
+     * Usuwa rezerwacje
+     * @param id Identyfikator rezerwacji
+     * @return Kod statusu 200
+     */
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +35,11 @@ public class ReservationResource {
         }
     }
 
+    /**
+     * Pobiera wszystkie rezerwacje
+     * @param done Czy rezerwacje maja byc skonczone
+     * @return Lista wszystkich rezerwacji
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll(@QueryParam("done") Boolean done) {
@@ -39,6 +52,11 @@ public class ReservationResource {
         }
     }
 
+    /**
+     * Pobiera rezerwacje o danym id
+     * @param id Identyfikator rezerwacji
+     * @return Pobrana rezerwacja
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -50,7 +68,13 @@ public class ReservationResource {
         }
     }
 
-
+    /**
+     * Zapisuje nowa rezerwacje w bazie danych
+     * @param clientId Identyfikator klienta
+     * @param serviceId Identyfikator uslugi
+     * @param workDateId Identyfikator terminu
+     * @return Utworzony obiekt rezerwacji
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -81,6 +105,14 @@ public class ReservationResource {
         }
     }
 
+    /**
+     * Uaktualnia rezerwacje
+     * @param id Identyfikator rezerwacji
+     * @param done Czy rezerwacja jest zakonczona
+     * @param dateId Identyfikator terminu
+     * @param employeeId Identyfikator pracownika
+     * @return Zmodyfikowana rezerwacja
+     */
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)

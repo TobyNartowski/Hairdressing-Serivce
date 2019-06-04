@@ -12,11 +12,17 @@ import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
+/**
+ * Przeprowadza testy klienta
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClientResourceTest {
 
     private static Integer testEntityId;
 
+    /**
+     * Inicjacja bazy danych oraz rest
+     */
     @BeforeClass
     public static void init() {
         DatabaseProxy.initDatabase();
@@ -25,6 +31,9 @@ public class ClientResourceTest {
         RestAssured.basePath = "/api";
     }
 
+    /**
+     * Pobiera wszystkie obiekty
+     */
     @Test
     public void testA() {
         get("/clients")
@@ -32,6 +41,9 @@ public class ClientResourceTest {
                 .statusCode(200);
     }
 
+    /**
+     * Zapisuje przykladowy obiekt
+     */
     @Test
     public void testB() {
         Client client = new Client("FirstName", "LastName", 123123123L);
@@ -48,6 +60,9 @@ public class ClientResourceTest {
                 .path("id");
     }
 
+    /**
+     * Pobiera przykladowy obiekt i sprawdza jego pola
+     */
     @Test
     public void testC() {
         given().pathParam("id", testEntityId)
@@ -64,6 +79,9 @@ public class ClientResourceTest {
                 .statusCode(200);
     }
 
+    /**
+     * Usuwa przykladowy obiekt z bazy danych
+     */
     @Test
     public void testD() {
         given().pathParam("id", testEntityId)

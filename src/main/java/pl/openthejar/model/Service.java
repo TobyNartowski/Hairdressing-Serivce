@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Encja uslugi
+ */
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor

@@ -9,17 +9,29 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Endpoint produktu
+ */
 @Path("/products")
 public class ProductResource {
 
     private EntityDao<Product> dao = new EntityDao<>(Product.class);
 
+    /**
+     * Pobiera wszystkie produkty
+     * @return Lista wszystkich produktow
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Product> getAll() {
         return dao.findAll();
     }
 
+    /**
+     * Zapisuje produkt w bazie danych
+     * @param product Produkt do zapisania
+     * @return Obiekt produktu, ktory zostal zapisany
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +39,11 @@ public class ProductResource {
         return dao.save(product);
     }
 
+    /**
+     * Uaktualnie proddukt w bazie danych
+     * @param product Uautkualniony produkt
+     * @return Uaktualniony obiekt
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -34,6 +51,11 @@ public class ProductResource {
         return dao.saveOrUpdate(product);
     }
 
+    /**
+     * Pobiera produkt z bazy danych
+     * @param id Identyfikator produktu
+     * @return Pobrany obiekt produktu
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -45,6 +67,11 @@ public class ProductResource {
         }
     }
 
+    /**
+     * Usuwa produkt z bazy danych
+     * @param id Identyfikator produktu
+     * @return Pobrany produkt
+     */
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -1,7 +1,6 @@
 package pl.openthejar;
 
 import pl.openthejar.dao.ClientDao;
-import pl.openthejar.dao.DatabaseProxy;
 import pl.openthejar.dao.EmployeeDao;
 import pl.openthejar.dao.EntityDao;
 import pl.openthejar.misc.DatabaseService;
@@ -13,8 +12,15 @@ import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Klasa zarzadzajaca konfiguracja do zarzadzania baza danych
+ */
 public class HairdressingServiceApplication {
 
+    /**
+     * Laduje przykladowe dane do bazy danych
+     * @param args argumenty
+     */
     public static void main(String[] args) {
         loadDummyData();
         loadMoreDummyData();
@@ -22,18 +28,27 @@ public class HairdressingServiceApplication {
         new DatabaseService();
     }
 
+    /**
+     * Laduje wolne terminy na nastepny dzien
+     */
     private static void loadNextDay() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(DatabaseService.getDailyChecker());
         executor.shutdown();
     }
 
+    /**
+     * Manualnie sprawdza wykonanie wszystkich rezerwacji
+     */
     private static void checkReservations() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(DatabaseService.getReservationsChecker());
         executor.shutdown();
     }
 
+    /**
+     * Laduje wiecej przykladowych danych
+     */
     private static void loadMoreDummyData() {
         ClientDao clientDao = new ClientDao();
         Client client = clientDao.get(1L);
@@ -57,6 +72,9 @@ public class HairdressingServiceApplication {
         entityDao.saveOrUpdate(reservation);
     }
 
+    /**
+     * Laduje przykladowe dane
+     */
     private static void loadDummyData() {
         Client client = new Client("John", "Doe", 123123123L);
         client.setLogin("admin@wp.pl");
