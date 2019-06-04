@@ -8,12 +8,24 @@ import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * DAO klienta
+ */
 public class ClientDao extends EntityDao<Client> {
 
+    /**
+     * Konstruktor tworzacy DAO
+     */
     public ClientDao() {
         super(Client.class);
     }
 
+    /**
+     * Metoda autoryzujaca uzytkownika
+     * @param login login uzytkownika
+     * @param hash hash uzytkownika
+     * @return Obiekt uzytkownika, ktory zostal pobrany
+     */
     public Client authenticateClient(String login, String hash) {
         final String query = "SELECT c FROM " + tableName + " c WHERE c.login = :login AND c.hash = :hash";
         TypedQuery<Client> authQuery = entityManager.createQuery(query, Client.class);
@@ -23,6 +35,11 @@ public class ClientDao extends EntityDao<Client> {
         return authQuery.getSingleResult();
     }
 
+    /**
+     * Pobierz wszystkie opinii klienta
+     * @param client Klient, dla ktorego pobierane sa opinie
+     * @return Lista opinii klienta
+     */
     public List<Review> getReviews(Client client) {
         final String query = "SELECT r FROM Reservation r INNER JOIN r.client c WHERE c.id = :id";
         TypedQuery<Reservation> authQuery = entityManager.createQuery(query, Reservation.class);
@@ -38,6 +55,12 @@ public class ClientDao extends EntityDao<Client> {
         return reviews;
     }
 
+    /**
+     * Pobiera wszystkie rezerwacje klienta
+     * @param client Klient, dla ktorego pobierane sa rezerwacje
+     * @param done Parametr, ktory okresla czy pobierac rezerwacje skonczone
+     * @return Lista rezerwacji klienta
+     */
     public List<Reservation> getReservations(Client client, Boolean done) {
         String query;
         TypedQuery<Reservation> authQuery;

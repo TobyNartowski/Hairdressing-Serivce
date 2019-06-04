@@ -19,11 +19,17 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+/**
+ * Klasa zarzadzajaca watkami pomocniczymi w tle
+ */
 public class DatabaseService {
 
     private ZonedDateTime currentDate = ZonedDateTime.now(ZoneId.of("Europe/Warsaw")).plusHours(2);
     private ZonedDateTime nextStartDate = currentDate.withHour(0).withMinute(0).withSecond(0);
 
+    /**
+     * Klasa dodajaca kolejne terminy na nastepny dzien oraz dodajaca ilosc produktow
+     */
     private static class DailyChecker implements Runnable {
 
         private static final int SECONDS_IN_DAY = 86400;
@@ -70,6 +76,9 @@ public class DatabaseService {
         }
     }
 
+    /**
+     * Klasa zmieniajaca typ rezerwacji na ukonczony
+     */
     private static class ReservationsChecker implements Runnable {
 
         private EntityDao<Reservation> dao = new EntityDao<>(Reservation.class);
@@ -86,6 +95,9 @@ public class DatabaseService {
         }
     }
 
+    /**
+     * Konstruktor klasy bazowej, ktory inicjuje watki
+     */
     public DatabaseService() {
         if (currentDate.compareTo(nextStartDate) > 0) {
             nextStartDate = nextStartDate.plusDays(1);
