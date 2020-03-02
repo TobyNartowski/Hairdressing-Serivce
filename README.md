@@ -40,4 +40,10 @@ View pending reservations and history, browse pending reservations and reviewing
 
 ![](src/main/webapp/img/unknown.png)
 
+## Authors
+* Piotr Piasecki - [Vattier56](https://github.com/Vattier56)
+* Tobiasz Nartowski - [TobyNartowski](https://github.com/TobyNartowski)
+* Michał Młodawski - [SimpleMethod](https://github.com/SimpleMethod)
+    
+
 
